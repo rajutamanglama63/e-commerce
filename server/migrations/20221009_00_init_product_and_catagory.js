@@ -36,7 +36,6 @@ module.exports = {
         allowNull: false,
       },
     });
-
     await queryInterface.addColumn("products", "catagory_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
