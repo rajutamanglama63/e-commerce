@@ -30,10 +30,13 @@ User.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
+    // shippingAddress: {
+    //   type: DataTypes.INTEGER,
+    // },
   },
   {
     sequelize,
-    underscored: true,
+    underscored: false,
     timestamps: false,
     modelName: "user",
   }

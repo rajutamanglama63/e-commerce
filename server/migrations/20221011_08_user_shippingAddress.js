@@ -48,9 +48,9 @@ module.exports = {
         allowNull: false,
       },
     });
-    await queryInterface.addColumn("users", "shippingAddress", {
+    await queryInterface.addColumn("shippingAddress", "users", {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: { model: "users", key: "id" },
     });
   },
