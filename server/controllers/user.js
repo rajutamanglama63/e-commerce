@@ -9,11 +9,11 @@ router.post("/signup", async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
 
     if (!firstName || !lastName || !email || !password) {
-      res.status(400).json({ msg: "All fields are required!" });
+      return res.status(400).json({ msg: "All fields are required!" });
     }
 
     if (password.length < 3) {
-      res.status(400).json({ msg: "Your password is too weak." });
+      return res.status(400).json({ msg: "Your password is too weak." });
     }
 
     const userExist = await User.findOne({
@@ -23,7 +23,7 @@ router.post("/signup", async (req, res) => {
     });
 
     if (userExist) {
-      res.status(400).json({ msg: "User already exists." });
+      return res.status(400).json({ msg: "User already exists." });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
       password: passwordHash,
     });
 
-    res.status(201).json(newUser);
+    res.status(201).json({ newUser });
   } catch (error) {
     console.log(error);
     process.exit(1);
