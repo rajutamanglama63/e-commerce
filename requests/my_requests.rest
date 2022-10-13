@@ -7,9 +7,9 @@ content-type: application/json
 }
 
 ###
-POST http://localhost:3001/api/catagories
+POST http://localhost:3001/api/catagories/
 content-type: application/json
 
 {
-    "catagory_name": "Watches"
+    "catagory_name": "head-ear-phones"
 }

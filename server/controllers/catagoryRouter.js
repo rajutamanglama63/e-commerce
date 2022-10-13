@@ -3,9 +3,13 @@ const Catagory = require("../models/catagory");
 
 const router = express.Router();
 
-router.post("/", async (res, req, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const { catagory_name } = req.body;
+
+    if (!catagory_name) {
+      return res.status(400).json({ msg: "Please mention the catagory." });
+    }
 
     const newCatagory = await Catagory.create({
       catagory_name,
