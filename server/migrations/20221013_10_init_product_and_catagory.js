@@ -44,7 +44,7 @@ module.exports = {
     });
     await queryInterface.addColumn("products", "catagory_id", {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       references: { model: "catagories", key: "id" },
     });
   },

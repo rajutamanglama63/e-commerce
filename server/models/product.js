@@ -35,7 +35,7 @@ Product.init(
   },
   {
     sequelize,
-    underscored: true,
+    underscored: false,
     timestamps: false,
     modelName: "product",
   }
