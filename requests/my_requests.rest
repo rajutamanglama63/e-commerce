@@ -5,3 +5,11 @@ content-type: application/json
     "email": "elephant123@gmail.com",
     "password": "1234"
 }
+
+###
+POST http://localhost:3001/api/catagories
+content-type: application/json
+
+{
+    "catagory_name": "Watches"
+}

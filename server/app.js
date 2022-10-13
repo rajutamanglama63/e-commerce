@@ -6,6 +6,7 @@ const path = require("path");
 
 const messagesRouter = require("./controllers/messagesRouter");
 const productsRouter = require("./controllers/productsRouter");
+const catagoryRouter = require("./controllers/catagoryRouter");
 const userRouter = require("./controllers/user");
 
 const middleware = require("./utils/middleware");
@@ -29,6 +30,7 @@ app.use(middleware.tokenExtractor);
 app.use("/api/messages", messagesRouter);
 app.use("/api/users", userRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/catagories", catagoryRouter);
 
 app.use(middleware.errorHandler);
 app.use(middleware.unKnownEndPoint);
