@@ -24,6 +24,12 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      img_publicId: {
+        type: DataTypes.TEXT,
+      },
+      img_url: {
+        type: DataTypes.TEXT,
+      },
     });
     await queryInterface.createTable("catagories", {
       id: {
