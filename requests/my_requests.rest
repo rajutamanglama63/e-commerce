@@ -27,3 +27,6 @@ content-type: application/json
     "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665654877/electronics-shop/qvoe9dsze7wuggmggy9c.jpg",
     "catagory_id": 1
 }
+
+###
+GET http://localhost:3001/api/products

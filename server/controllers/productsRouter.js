@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const fs = require("fs");
 
 const Product = require("../models/product");
+const Catagory = require("../models/catagory");
 
 dotenv.config();
 
@@ -91,6 +92,21 @@ router.post("/", async (req, res, next) => {
   });
 
   res.status(200).json(newProduct);
+});
+
+router.get("/", async (req, res, next) => {
+  try {
+    const allProducts = await Product.findAll({
+      // include: {
+      //   model: Catagory,
+      //   attributes: ["catagory_name"],
+      // },
+    });
+
+    res.status(200).json({ allProducts });
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
