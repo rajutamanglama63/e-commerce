@@ -66,6 +66,7 @@ router.post("/", async (req, res, next) => {
     quantity,
     img_publicId,
     img_url,
+    catagory_id,
   } = req.body;
 
   if (
@@ -86,6 +87,7 @@ router.post("/", async (req, res, next) => {
     quantity,
     img_publicId,
     img_url,
+    catagory_id,
   });
 
   res.status(200).json(newProduct);

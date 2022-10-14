@@ -32,6 +32,10 @@ Product.init(
     img_url: {
       type: DataTypes.TEXT,
     },
+    catagory_id: {
+      type: DataTypes.INTEGER,
+      references: { model: "catagories", key: "id" },
+    },
   },
   {
     sequelize,

@@ -13,3 +13,17 @@ content-type: application/json
 {
     "catagory_name": "head-ear-phones"
 }
+
+###
+POST http://localhost:3001/api/products
+content-type: application/json
+
+{
+    "price": 100,
+    "product_name": "ear-buds",
+    "specification": "3mAh-power, white in color, doul dolby",
+    "quantity": 5,
+    "img_publicId": "electronics-shop/ty6q0jycnhldozlagjfq",
+    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665660242/electronics-shop/ty6q0jycnhldozlagjfq.jpg",
+    "catagory_id": 4
+}
