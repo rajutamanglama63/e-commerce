@@ -1,5 +1,6 @@
 const express = require("express");
 const Catagory = require("../models/catagory");
+const Product = require("../models/product");
 
 const router = express.Router();
 
@@ -19,6 +20,17 @@ router.post("/", async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
+
+router.get("/", async (req, res) => {
+  const allCatagories = await Catagory.findAll({
+    include: {
+      model: Product,
+      attributes: ["product_name"],
+    },
+  });
+
+  res.status(200).json({ allCatagories });
 });
 
 module.exports = router;
