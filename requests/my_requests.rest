@@ -33,3 +33,13 @@ GET http://localhost:3001/api/products
 
 ###
 GET http://localhost:3001/api/catagories
+
+###
+POST http://localhost:3001/api/cart
+content-type: "application/json"
+
+{
+    "quantity": 2,
+    "products": 1,
+    "users": 3
+}
