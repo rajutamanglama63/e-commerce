@@ -1,9 +1,9 @@
 const { DataTypes, Model } = require("sequelize");
 const { sequelize } = require("../utils/db");
 
-class ShoppingCart extends Model {}
+class Cart extends Model {}
 
-ShoppingCart.init(
+Cart.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -19,8 +19,8 @@ ShoppingCart.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "shoppingCart",
+    modelName: "cart",
   }
 );
 
-module.exports = ShoppingCart;
+module.exports = Cart;

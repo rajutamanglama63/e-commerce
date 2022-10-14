@@ -1,5 +1,5 @@
 const express = require("express");
-const ShoppingCart = require("../models/shoppingCart");
+const Cart = require("../models/cart");
 
 const router = express.Router();
 
@@ -7,7 +7,7 @@ router.post("/", async (req, res, next) => {
   try {
     const { quantity, products, users } = req.body;
 
-    const newCartData = await ShoppingCart.create({
+    const newCartData = await Cart.create({
       quantity,
       products,
       users,
