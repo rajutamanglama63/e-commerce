@@ -19,11 +19,11 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 100,
-    "product_name": "ear-buds",
-    "specification": "3mAh-power, white in color, doul dolby",
-    "quantity": 5,
-    "img_publicId": "electronics-shop/ty6q0jycnhldozlagjfq",
-    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665660242/electronics-shop/ty6q0jycnhldozlagjfq.jpg",
-    "catagory_id": 4
+    "price": 355,
+    "product_name": "gurkha watch",
+    "specification": "water and dust resistance, silver in color, classic, high class, shows time correctly",
+    "quantity": 3,
+    "img_publicId": "electronics-shop/qvoe9dsze7wuggmggy9c",
+    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665654877/electronics-shop/qvoe9dsze7wuggmggy9c.jpg",
+    "catagory_id": 1
 }
