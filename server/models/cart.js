@@ -12,7 +12,15 @@ Cart.init(
     },
     quantity: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
+    },
+    product_id: {
+      type: DataTypes.INTEGER,
+      references: { model: "products", key: "id" },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: { model: "users", key: "id" },
     },
   },
   {

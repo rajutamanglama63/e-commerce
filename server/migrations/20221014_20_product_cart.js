@@ -10,7 +10,7 @@ module.exports = {
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
       },
     });
     await queryInterface.createTable("products", {

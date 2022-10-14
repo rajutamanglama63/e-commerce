@@ -5,12 +5,12 @@ const router = express.Router();
 
 router.post("/", async (req, res, next) => {
   try {
-    const { quantity, products, users } = req.body;
+    const { quantity, product_id } = req.body;
 
     const newCartData = await Cart.create({
       quantity,
-      products,
-      users,
+      product_id,
+      user_id: req.decodedToken.id,
     });
 
     res.status(200).json({ newCartData });
