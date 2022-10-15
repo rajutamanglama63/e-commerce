@@ -25,6 +25,8 @@ const userExtractor = (req, res, next) => {
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
     req.user = authorization.substring(7);
   }
+
+  next();
 };
 
 const errorHandler = (err, req, res, next) => {

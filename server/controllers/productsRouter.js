@@ -106,6 +106,7 @@ router.get("/", async (req, res, next) => {
     res.status(200).json({ allProducts });
   } catch (error) {
     next(error);
+    console.log(error.message);
   }
 });
 

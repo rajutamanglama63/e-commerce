@@ -22,15 +22,19 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get("/", async (req, res) => {
-  const allCatagories = await Catagory.findAll({
-    include: {
-      model: Product,
-      attributes: ["product_name"],
-    },
-  });
+router.get("/", async (req, res, next) => {
+  try {
+    const allCatagories = await Catagory.findAll({
+      include: {
+        model: Product,
+        attributes: ["product_name"],
+      },
+    });
 
-  res.status(200).json({ allCatagories });
+    res.status(200).json({ allCatagories });
+  } catch (error) {
+    next(error);
+  }
 });
 
 module.exports = router;
