@@ -26,7 +26,7 @@ app.use(
   })
 );
 
-app.use(middleware.tokenExtractor);
+app.use(middleware.userExtractor);
 
 app.use("/api/messages", messagesRouter);
 app.use("/api/users", userRouter);

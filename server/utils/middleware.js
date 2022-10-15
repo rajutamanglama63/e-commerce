@@ -1,23 +1,30 @@
-const jwt = require("jsonwebtoken");
-const { SECRET } = require("./config.js");
+// const jwt = require("jsonwebtoken");
+// const { SECRET } = require("./config.js");
 
 const unKnownEndPoint = (req, res, next) => {
   res.status(404).send({ err: "Unknown endpoint" });
 };
 
-const tokenExtractor = (req, res, next) => {
+// const tokenExtractor = (req, res, next) => {
+//   const authorization = req.get("authorization");
+//   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
+//     try {
+//       req.decodedToken = jwt.verify(authorization.substring(7), SECRET);
+//     } catch {
+//       return res.status(401).json({ error: "token invalid" });
+//     }
+//   } else {
+//     return res.status(401).json({ error: "token missing" });
+//   }
+
+//   next();
+// };
+
+const userExtractor = (req, res, next) => {
   const authorization = req.get("authorization");
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
-    try {
-      req.decodedToken = jwt.verify(authorization.substring(7), SECRET);
-    } catch {
-      return res.status(401).json({ error: "token invalid" });
-    }
-  } else {
-    return res.status(401).json({ error: "token missing" });
+    req.user = authorization.substring(7);
   }
-
-  next();
 };
 
 const errorHandler = (err, req, res, next) => {
@@ -39,5 +46,5 @@ const errorHandler = (err, req, res, next) => {
 module.exports = {
   unKnownEndPoint,
   errorHandler,
-  tokenExtractor,
+  userExtractor,
 };
