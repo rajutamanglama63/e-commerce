@@ -8,17 +8,17 @@ const Cart = require("./cart");
 Catagory.hasMany(Product);
 Product.belongsTo(Catagory);
 
-User.hasOne(ShippingAddress);
-ShippingAddress.belongsTo(User);
+// User.hasOne(ShippingAddress);
+// ShippingAddress.belongsTo(User);
 
-Cart.hasMany(Product);
-Product.belongsTo(Cart);
+// Cart.hasMany(Product);
+// Product.belongsTo(Cart);
 
-User.hasOne(Cart);
-Cart.belongsTo(User);
+// User.hasOne(Cart);
+// Cart.belongsTo(User);
 
-User.hasMany(OrderHistory);
-OrderHistory.belongsTo(User);
+// User.hasMany(OrderHistory);
+// OrderHistory.belongsTo(User);
 
 module.exports = {
   Product,

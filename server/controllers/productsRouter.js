@@ -28,7 +28,7 @@ router.post("/upload", async (req, res, next) => {
       catagory_id,
     } = req.body;
 
-    const catagory = await Catagory.findByPk(catagory_id);
+    // const catagory = await Catagory.findByPk(catagory_id);
 
     // const pic = req.files;
     // console.log(pic);
