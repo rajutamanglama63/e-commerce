@@ -18,6 +18,18 @@ cloudinary.config({
 
 router.post("/upload", async (req, res, next) => {
   try {
+    const {
+      price,
+      product_name,
+      specification,
+      quantity,
+      img_publicId,
+      img_url,
+      catagory_id,
+    } = req.body;
+
+    const catagory = await Catagory.findByPk(catagory_id);
+
     // const pic = req.files;
     // console.log(pic);
 
@@ -42,9 +54,19 @@ router.post("/upload", async (req, res, next) => {
 
         removeTem(file.tempFilePath);
 
-        res
-          .status(200)
-          .json({ publicId: result.public_id, url: result.secure_url });
+        // res.status(200).json({ publicId: result.public_id, url: result.secure_url });
+
+        const newProduct = await Product.create({
+          price,
+          product_name,
+          specification,
+          quantity,
+          img_publicId: result.public_id,
+          img_url: result.secure_url,
+          catagory_id: catagory.id,
+        });
+
+        res.status(201).json({ newProduct });
       }
     );
   } catch (error) {
@@ -59,40 +81,40 @@ const removeTem = (path) => {
   });
 };
 
-router.post("/", async (req, res, next) => {
-  const {
-    price,
-    product_name,
-    specification,
-    quantity,
-    img_publicId,
-    img_url,
-    catagory_id,
-  } = req.body;
+// router.post("/", async (req, res, next) => {
+//   const {
+//     price,
+//     product_name,
+//     specification,
+//     quantity,
+//     img_publicId,
+//     img_url,
+//     catagory_id,
+//   } = req.body;
 
-  if (
-    !price ||
-    !product_name ||
-    !specification ||
-    !quantity ||
-    !img_publicId ||
-    !img_url
-  ) {
-    return res.status(400).json({ msg: "All fields are require!" });
-  }
+//   if (
+//     !price ||
+//     !product_name ||
+//     !specification ||
+//     !quantity ||
+//     !img_publicId ||
+//     !img_url
+//   ) {
+//     return res.status(400).json({ msg: "All fields are require!" });
+//   }
 
-  const newProduct = await Product.create({
-    price,
-    product_name,
-    specification,
-    quantity,
-    img_publicId,
-    img_url,
-    catagory_id,
-  });
+//   const newProduct = await Product.create({
+//     price,
+//     product_name,
+//     specification,
+//     quantity,
+//     img_publicId,
+//     img_url,
+//     catagory_id,
+//   });
 
-  res.status(200).json(newProduct);
-});
+//   res.status(200).json(newProduct);
+// });
 
 router.get("/", async (req, res, next) => {
   try {
@@ -106,7 +128,6 @@ router.get("/", async (req, res, next) => {
     res.status(200).json({ allProducts });
   } catch (error) {
     next(error);
-    console.log(error.message);
   }
 });
 
