@@ -18,18 +18,6 @@ cloudinary.config({
 
 router.post("/upload", async (req, res, next) => {
   try {
-    const {
-      price,
-      product_name,
-      specification,
-      quantity,
-      img_publicId,
-      img_url,
-      catagory_id,
-    } = req.body;
-
-    // const catagory = await Catagory.findByPk(catagory_id);
-
     // const pic = req.files;
     // console.log(pic);
 
@@ -54,19 +42,9 @@ router.post("/upload", async (req, res, next) => {
 
         removeTem(file.tempFilePath);
 
-        // res.status(200).json({ publicId: result.public_id, url: result.secure_url });
-
-        const newProduct = await Product.create({
-          price,
-          product_name,
-          specification,
-          quantity,
-          img_publicId: result.public_id,
-          img_url: result.secure_url,
-          catagory_id: catagory.id,
-        });
-
-        res.status(201).json({ newProduct });
+        res
+          .status(200)
+          .json({ publicId: result.public_id, url: result.secure_url });
       }
     );
   } catch (error) {
@@ -81,48 +59,55 @@ const removeTem = (path) => {
   });
 };
 
-// router.post("/", async (req, res, next) => {
-//   const {
-//     price,
-//     product_name,
-//     specification,
-//     quantity,
-//     img_publicId,
-//     img_url,
-//     catagory_id,
-//   } = req.body;
+router.post("/", async (req, res, next) => {
+  try {
+    const {
+      price,
+      product_name,
+      specification,
+      quantity,
+      img_publicId,
+      img_url,
+      catagory_id,
+    } = req.body;
 
-//   if (
-//     !price ||
-//     !product_name ||
-//     !specification ||
-//     !quantity ||
-//     !img_publicId ||
-//     !img_url
-//   ) {
-//     return res.status(400).json({ msg: "All fields are require!" });
-//   }
+    if (
+      !price ||
+      !product_name ||
+      !specification ||
+      !quantity ||
+      !img_publicId ||
+      !img_url
+    ) {
+      return res.status(400).json({ msg: "All fields are require!" });
+    }
 
-//   const newProduct = await Product.create({
-//     price,
-//     product_name,
-//     specification,
-//     quantity,
-//     img_publicId,
-//     img_url,
-//     catagory_id,
-//   });
+    const catagory = await Catagory.findByPk(catagory_id);
+    // console.log(catagory);
 
-//   res.status(200).json(newProduct);
-// });
+    const newProduct = await Product.create({
+      price,
+      product_name,
+      specification,
+      quantity,
+      img_publicId,
+      img_url,
+      catagory_id: catagory.id,
+    });
+
+    res.status(200).json(newProduct);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.get("/", async (req, res, next) => {
   try {
     const allProducts = await Product.findAll({
-      // include: {
-      //   model: Catagory,
-      //   attributes: ["catagory_name"],
-      // },
+      include: {
+        model: Catagory,
+        attributes: ["catagory_name"],
+      },
     });
 
     res.status(200).json({ allProducts });

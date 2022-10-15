@@ -25,10 +25,10 @@ router.post("/", async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const allCatagories = await Catagory.findAll({
-      include: {
-        model: Product,
-        attributes: ["product_name"],
-      },
+      // include: {
+      //   model: Product,
+      //   attributes: ["product_name"],
+      // },
     });
 
     res.status(200).json({ allCatagories });

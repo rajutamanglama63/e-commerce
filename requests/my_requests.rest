@@ -11,7 +11,7 @@ POST http://localhost:3001/api/catagories/
 content-type: application/json
 
 {
-    "catagory_name": "head-ear-phones"
+    "catagory_name": "watches"
 }
 
 ###
@@ -19,13 +19,13 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 355,
-    "product_name": "gurkha watch",
-    "specification": "water and dust resistance, silver in color, classic, high class, shows time correctly",
-    "quantity": 3,
-    "img_publicId": "electronics-shop/qvoe9dsze7wuggmggy9c",
-    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665654877/electronics-shop/qvoe9dsze7wuggmggy9c.jpg",
-    "catagory_id": 1
+    "price": 200,
+    "product_name": "iphone",
+    "specification": "8 GB RAM, white in color, expandable storage, high tech, ios processer",
+    "quantity": 7,
+    "img_publicId": "electronics-shop/d8zym3zogcdexcxptkwt",
+    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665842926/electronics-shop/d8zym3zogcdexcxptkwt.jpg",
+    "catagory_id": 2
 }
 
 ###
