@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 module.exports = {
   up: async ({ context: queryInterface }) => {
-    await queryInterface.createTable("orderHistory", {
+    await queryInterface.createTable("order_history", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -40,14 +40,14 @@ module.exports = {
           defaultValue: false,
         },
       });
-    await queryInterface.addColumn("orderHistory", "users", {
+    await queryInterface.addColumn("order_history", "user_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "orderHistory", key: "id" },
+      references: { model: "users", key: "id" },
     });
   },
   down: async ({ context: queryInterface }) => {
-    await queryInterface.dropTable("orderHistory");
+    await queryInterface.dropTable("order_history");
     await queryInterface.dropTable("users");
   },
 };
