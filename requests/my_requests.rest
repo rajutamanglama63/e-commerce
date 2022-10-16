@@ -19,13 +19,13 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 200,
-    "product_name": "iphone",
-    "specification": "8 GB RAM, white in color, expandable storage, high tech, ios processer",
-    "quantity": 7,
-    "img_publicId": "electronics-shop/d8zym3zogcdexcxptkwt",
-    "img_url": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665842926/electronics-shop/d8zym3zogcdexcxptkwt.jpg",
-    "catagory_id": 2
+    "price": 300,
+    "productName": "dell",
+    "specification": "8 GB RAM, 1TB hard disk, white in color, expandable storage, high tech, intel processer",
+    "quantity": 5,
+    "imgPublicId": "electronics-shop/bdpjpywjvpjqdksjzjwj",
+    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg",
+    "catagoryId": 3
 }
 
 ###

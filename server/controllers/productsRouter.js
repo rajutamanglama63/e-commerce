@@ -68,36 +68,36 @@ router.post("/", async (req, res, next) => {
   try {
     const {
       price,
-      product_name,
+      productName,
       specification,
       quantity,
-      img_publicId,
-      img_url,
-      catagory_id,
+      imgPublicId,
+      imgUrl,
+      catagoryId,
     } = req.body;
 
     if (
       !price ||
-      !product_name ||
+      !productName ||
       !specification ||
       !quantity ||
-      !img_publicId ||
-      !img_url
+      !imgPublicId ||
+      !imgUrl
     ) {
       return res.status(400).json({ msg: "All fields are require!" });
     }
 
-    const catagory = await Catagory.findByPk(catagory_id);
+    // const catagory = await Catagory.findByPk(catagoryId);
     // console.log(catagory);
 
     const newProduct = await Product.create({
       price,
-      product_name,
+      productName,
       specification,
       quantity,
-      img_publicId,
-      img_url,
-      catagory_id: catagory.id,
+      imgPublicId,
+      imgUrl,
+      catagoryId: catagoryId,
     });
 
     res.status(200).json(newProduct);
@@ -109,6 +109,7 @@ router.post("/", async (req, res, next) => {
 router.get("/", async (req, res, next) => {
   try {
     const allProducts = await Product.findAll({
+      attributes: { exclude: ["catagoryId"] },
       include: {
         model: Catagory,
         attributes: ["catagory_name"],

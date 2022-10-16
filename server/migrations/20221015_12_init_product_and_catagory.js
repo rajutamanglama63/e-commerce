@@ -24,10 +24,13 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      img_publicId: {
+      img_public_id: {
         type: DataTypes.TEXT,
       },
       img_url: {
+        type: DataTypes.TEXT,
+      },
+      cart_id: {
         type: DataTypes.TEXT,
       },
     });

@@ -14,11 +14,11 @@ Cart.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    product_id: {
+    productId: {
       type: DataTypes.INTEGER,
       references: { model: "products", key: "id" },
     },
-    user_id: {
+    userId: {
       type: DataTypes.INTEGER,
       references: { model: "users", key: "id" },
     },

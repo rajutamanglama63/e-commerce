@@ -14,7 +14,7 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    product_name: {
+    productName: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
@@ -26,20 +26,24 @@ Product.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    img_publicId: {
+    imgPublicId: {
       type: DataTypes.TEXT,
     },
-    img_url: {
+    imgUrl: {
       type: DataTypes.TEXT,
     },
-    catagory_id: {
+    catagoryId: {
       type: DataTypes.INTEGER,
       references: { model: "catagories", key: "id" },
+    },
+    cartId: {
+      type: DataTypes.INTEGER,
+      references: { model: "carts", key: "id" },
     },
   },
   {
     sequelize,
-    underscored: false,
+    underscored: true,
     timestamps: false,
     modelName: "product",
   }
