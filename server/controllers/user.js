@@ -95,7 +95,7 @@ router.get("/:id", async (req, res, next) => {
     const user = await User.findByPk(id, {
       include: {
         model: Cart,
-        attributes: ["quantity", "productId"],
+        attributes: ["quantity"],
       },
     });
 
