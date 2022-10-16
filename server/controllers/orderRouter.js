@@ -33,4 +33,19 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.get("/", async (req, res, next) => {
+  try {
+    const allOrders = await OrderHistory.findAll({
+      include: {
+        model: User,
+        attributes: ["firstName"],
+      },
+    });
+
+    res.status(200).json({ allOrders });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

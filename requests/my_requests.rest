@@ -50,3 +50,6 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJTc
 
 ###
 GET http://localhost:3001/api/cart
+
+###
+GET http://localhost:3001/api/order
