@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      firstName: {
+      first_name: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      lastName: {
+      last_name: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
@@ -24,7 +24,7 @@ module.exports = {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      isAdmin: {
+      is_admin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
@@ -48,7 +48,7 @@ module.exports = {
         allowNull: false,
       },
     });
-    await queryInterface.addColumn("shipping_address", "users", {
+    await queryInterface.addColumn("shipping_address", "user_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "users", key: "id" },

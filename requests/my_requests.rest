@@ -40,5 +40,5 @@ content-type: application/json
 
 {
     "quantity": 2,
-    "product_id": 1,
+    "productId": 1,
 }

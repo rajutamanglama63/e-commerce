@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      orderStatus: {
+      order_status: {
         type: DataTypes.TEXT,
         allowNull: true,
       },
@@ -19,11 +19,11 @@ module.exports = {
           primaryKey: true,
           autoIncrement: true,
         },
-        firstName: {
+        first_name: {
           type: DataTypes.TEXT,
           allowNull: false,
         },
-        lastName: {
+        last_name: {
           type: DataTypes.TEXT,
           allowNull: false,
         },
@@ -35,7 +35,7 @@ module.exports = {
           type: DataTypes.TEXT,
           allowNull: false,
         },
-        isAdmin: {
+        is_admin: {
           type: DataTypes.BOOLEAN,
           defaultValue: false,
         },

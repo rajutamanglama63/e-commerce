@@ -25,7 +25,7 @@ ShippingAddress.init(
   },
   {
     sequelize,
-    underscored: false,
+    underscored: true,
     timestamps: false,
     modelName: "sippingAddress",
   }

@@ -10,44 +10,46 @@ module.exports = {
       },
       quantity: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: false,
       },
     });
-    await queryInterface.createTable("users", {
+    await queryInterface.createTable("products", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
-      firstName: {
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      product_name: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      lastName: {
+      specification: {
         type: DataTypes.TEXT,
+        allowNull: true,
+      },
+      quantity: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-      email: {
+      img_public_id: {
         type: DataTypes.TEXT,
-        allowNull: false,
       },
-      password: {
+      img_url: {
         type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      isAdmin: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
       },
     });
-    await queryInterface.addColumn("carts", "user_id", {
+    await queryInterface.addColumn("carts", "product_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "users", key: "id" },
+      references: { model: "products", key: "id" },
     });
   },
   down: async ({ context: queryInterface }) => {
     await queryInterface.dropTable("carts");
-    await queryInterface.dropTable("users");
+    await queryInterface.dropTable("products");
   },
 };
