@@ -3,8 +3,13 @@ const cloudinary = require("cloudinary");
 const dotenv = require("dotenv");
 const fs = require("fs");
 
-const Product = require("../models/product");
-const Catagory = require("../models/catagory");
+// importing directly from specific model cause error something like -(SequelizeEagerLoadingError: catagory is not associated to product!)
+
+// const Product = require("../models/product");
+// const Catagory = require("../models/catagory");
+
+// we always need to import sequelize modelSchema from index.js file of model folder where we've associate them (modelSchema)
+const { Product, Catagory } = require("../models");
 
 dotenv.config();
 
