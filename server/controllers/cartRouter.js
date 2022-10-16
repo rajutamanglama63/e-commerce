@@ -6,6 +6,7 @@ const config = require("../utils/config");
 // const User = require("../models/user");
 
 const { Cart, Product, User } = require("../models");
+const { findAll } = require("../models/product");
 
 const router = express.Router();
 
@@ -38,6 +39,21 @@ router.post("/", async (req, res, next) => {
   } catch (error) {
     next(error);
     // console.log(error);
+  }
+});
+
+router.get("/", async (req, res, next) => {
+  try {
+    const allCartItems = await Cart.findAll({
+      include: {
+        model: User,
+        attributes: ["firstName"],
+      },
+    });
+
+    res.status(200).json({ allCartItems });
+  } catch (error) {
+    next(error);
   }
 });
 

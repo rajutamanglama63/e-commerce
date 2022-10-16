@@ -2,7 +2,7 @@ POST http://localhost:3001/api/users/signin
 content-type: application/json
 
 {
-    "email": "rabbit123@gmail.com",
+    "email": "elephant123@gmail.com",
     "password": "1234"
 }
 
@@ -19,13 +19,13 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 300,
-    "productName": "dell",
-    "specification": "8 GB RAM, 1TB hard disk, white in color, expandable storage, high tech, intel processer",
-    "quantity": 5,
-    "imgPublicId": "electronics-shop/bdpjpywjvpjqdksjzjwj",
-    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg",
-    "catagoryId": 3
+    "price": 160,
+    "productName": "siko 5",
+    "specification": "water and dust resistance, affordable, silver in color, classic design, show time perfectly",
+    "quantity": 3,
+    "imgPublicId": "electronics-shop/qvoe9dsze7wuggmggy9c",
+    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665654877/electronics-shop/qvoe9dsze7wuggmggy9c.jpg",
+    "catagoryId": 4
 }
 
 ###
@@ -43,3 +43,6 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJSY
     "quantity": 1,
     "productId": 1,
 }
+
+###
+GET http://localhost:3001/api/cart
