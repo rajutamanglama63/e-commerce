@@ -2,7 +2,8 @@ POST http://localhost:3001/api/users/signin
 content-type: application/json
 
 {
-    "email": "elephant123@gmail.com",
+    
+    "email": "rabbit123@gmail.com",
     "password": "1234"
 }
 
@@ -40,7 +41,7 @@ GET http://localhost:3001/api/catagories
 ###
 POST http://localhost:3001/api/cart/
 content-type: application/json,
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJSYWJiaXQiLCJsYXN0TmFtZSI6IlJhaSIsImlkIjoyLCJpYXQiOjE2NjU5MTU5NjUsImV4cCI6MTY2NTkxOTU2NX0.wWHgOaAb5Mneov4Gh04XbxKSjM99934eLTBvIB6zwgc
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJTcGFycm93IiwibGFzdE5hbWUiOiJTaGVycGEiLCJpZCI6MywiaWF0IjoxNjY1OTMyMzIwLCJleHAiOjE2NjU5MzU5MjB9.e7B3zIVmk9G5f7TEw96-OJGBHuihOdnLrX-Xe1Lc4Ko
 
 {
     "quantity": 1,

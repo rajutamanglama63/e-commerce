@@ -14,6 +14,14 @@ OrderHistory.init(
       type: DataTypes.TEXT,
       allowNull: true,
     },
+    orderedProductId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: { model: "users", key: "id" },
+    },
   },
   {
     sequelize,
