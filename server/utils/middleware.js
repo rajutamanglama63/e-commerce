@@ -34,7 +34,7 @@ const errorHandler = (err, req, res, next) => {
 
   if (err.name === "CastError") {
     return res.status(400).send({ err: "malformatted id" });
-  } else if (err.name === "ValidationError") {
+  } else if (err.name === "SequelizeValidationError") {
     return res.status(400).json({ err: err.message });
   } else if (err.name === "JsonWebTokenError") {
     return res.status(401).json({ err: err.message });

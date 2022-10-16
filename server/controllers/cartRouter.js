@@ -12,6 +12,7 @@ const router = express.Router();
 router.post("/", async (req, res, next) => {
   try {
     const { quantity, productId } = req.body;
+    // console.log(quantity, productId);
 
     // const product_item = await Product.findByPk(productId);
 
@@ -29,13 +30,14 @@ router.post("/", async (req, res, next) => {
 
     const newCartData = await Cart.create({
       quantity,
-      product_id: productId,
-      user_id: user.id,
+      productId,
+      userId: user.id,
     });
 
     res.status(200).json({ newCartData });
   } catch (error) {
     next(error);
+    // console.log(error);
   }
 });
 
