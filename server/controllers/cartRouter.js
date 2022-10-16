@@ -49,6 +49,10 @@ router.get("/", async (req, res, next) => {
         model: User,
         attributes: ["firstName"],
       },
+      include: {
+        model: Product,
+        attributes: ["productName"],
+      },
     });
 
     res.status(200).json({ allCartItems });

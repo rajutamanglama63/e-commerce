@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const { User, Cart, Product } = require("../models");
 const { SECRET } = require("../utils/config");
 
 const router = express.Router();
@@ -86,6 +86,22 @@ router.post("/signin", async (req, res, next) => {
   } catch (error) {
     next(error);
     process.exit(1);
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const user = await User.findByPk(id, {
+      include: {
+        model: Cart,
+        attributes: ["quantity", "productId"],
+      },
+    });
+
+    res.status(200).json({ user });
+  } catch (error) {
+    next(error);
   }
 });
 

@@ -40,6 +40,8 @@ const errorHandler = (err, req, res, next) => {
     return res.status(401).json({ err: err.message });
   } else if (err.name === "TokenExpiredError") {
     return res.status(401).json({ err: err.message });
+  } else if (err.name === "SequelizeEagerLoadingError") {
+    return res.status(400).json({ err: err.message });
   }
 
   next(err);

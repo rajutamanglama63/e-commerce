@@ -7,6 +7,9 @@ content-type: application/json
 }
 
 ###
+GET http://localhost:3001/api/users/3
+
+###
 POST http://localhost:3001/api/catagories/
 content-type: application/json
 
