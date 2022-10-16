@@ -26,7 +26,7 @@ OrderHistory.init(
   {
     sequelize,
     underscored: true,
-    timestamps: true,
+    timestamps: false,
     modelName: "orderHistory",
   }
 );
