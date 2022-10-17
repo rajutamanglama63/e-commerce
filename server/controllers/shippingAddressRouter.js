@@ -49,4 +49,27 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const shippingAddresses = await ShippingAddress.findAll({
+      include: {
+        model: User,
+        attributes: ["firstName"],
+      },
+    });
+
+    shippingAddresses.forEach((address) => {
+      if (address.userId.toString() === req.params.id) {
+        return res.status(200).json({ address });
+      } else {
+        return res
+          .status(500)
+          .json({ msg: "Please update your shipping address." });
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
