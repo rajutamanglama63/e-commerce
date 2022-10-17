@@ -29,7 +29,7 @@ module.exports = {
         defaultValue: false,
       },
     });
-    await queryInterface.createTable("shipping_address", {
+    await queryInterface.createTable("shipping_addresses", {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -48,7 +48,7 @@ module.exports = {
         allowNull: false,
       },
     });
-    await queryInterface.addColumn("shipping_address", "user_id", {
+    await queryInterface.addColumn("shipping_addresses", "user_id", {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "users", key: "id" },
@@ -56,6 +56,6 @@ module.exports = {
   },
   down: async ({ context: queryInterface }) => {
     await queryInterface.dropTable("users");
-    await queryInterface.dropTable("shipping_address");
+    await queryInterface.dropTable("shipping_addresses");
   },
 };

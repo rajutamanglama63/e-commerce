@@ -22,12 +22,16 @@ ShippingAddress.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      references: { model: "users", key: "id" },
+    },
   },
   {
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "sippingAddress",
+    modelName: "shippingAddress",
   }
 );
 

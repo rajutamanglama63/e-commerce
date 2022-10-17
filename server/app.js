@@ -9,6 +9,7 @@ const productsRouter = require("./controllers/productsRouter");
 const catagoryRouter = require("./controllers/catagoryRouter");
 const cartRouter = require("./controllers/cartRouter");
 const orderRouter = require("./controllers/orderRouter");
+const shippingAddressRouter = require("./controllers/shippingAddressRouter");
 const userRouter = require("./controllers/user");
 
 const middleware = require("./utils/middleware");
@@ -35,6 +36,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/catagories", catagoryRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
+app.use("/api/shipping_address", shippingAddressRouter);
 
 app.use(middleware.errorHandler);
 app.use(middleware.unKnownEndPoint);

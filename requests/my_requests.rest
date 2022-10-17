@@ -53,3 +53,6 @@ GET http://localhost:3001/api/cart
 
 ###
 GET http://localhost:3001/api/order
+
+###
+GET http://localhost:3001/api/shipping_address
