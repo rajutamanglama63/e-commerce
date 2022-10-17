@@ -68,8 +68,10 @@ router.get("/:id", async (req, res, next) => {
     allCartItems.forEach((item) => {
       if (item.userId.toString() === req.params.id) {
         return res.status(200).json({ item });
-      } else {
-        return res.status(500).json({ msg: "You have no items in cart." });
+      } else if (res.headersSent !== true) {
+        return res
+          .status(500)
+          .json({ msg: "You've no item listed in your cart yet." });
       }
     });
   } catch (error) {
