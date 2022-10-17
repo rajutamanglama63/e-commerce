@@ -1,7 +1,7 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const config = require("../utils/config");
-const { OrderHistory, User } = require("../models");
+const { OrderHistory, User, Product } = require("../models");
 
 const router = express.Router();
 
@@ -43,6 +43,29 @@ router.get("/", async (req, res, next) => {
     });
 
     res.status(200).json({ allOrders });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const allOrders = await OrderHistory.findAll({
+      include: {
+        model: User,
+        attributes: ["firstName"],
+      },
+    });
+
+    allOrders.forEach((order) => {
+      // console.log(typeof order.userId);
+      // console.log(typeof req.params.id);
+      if (order.userId.toString() !== req.params.id) {
+        return res.status(500).json({ msg: "You have no orders yet" });
+      } else {
+        return res.status(200).json({ order });
+      }
+    });
   } catch (error) {
     next(error);
   }

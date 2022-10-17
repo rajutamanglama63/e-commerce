@@ -6,7 +6,6 @@ const config = require("../utils/config");
 // const User = require("../models/user");
 
 const { Cart, Product, User } = require("../models");
-const { findAll } = require("../models/product");
 
 const router = express.Router();
 
@@ -52,6 +51,27 @@ router.get("/", async (req, res, next) => {
     });
 
     res.status(200).json({ allCartItems });
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const allCartItems = await Cart.findAll({
+      include: {
+        model: User,
+        attributes: ["firstName"],
+      },
+    });
+
+    allCartItems.forEach((item) => {
+      if (item.userId.toString() === req.params.id) {
+        return res.status(200).json({ item });
+      } else {
+        return res.status(500).json({ msg: "You have no items in cart." });
+      }
+    });
   } catch (error) {
     next(error);
   }
