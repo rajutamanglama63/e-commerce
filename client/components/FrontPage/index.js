@@ -22,8 +22,13 @@ const FrontPage = () => (
         />
         <span className="name">Siko 5</span>
         <div className="price">Rs 170</div>
-        <div>specification, feature, discription and it's uniqueness</div>
-        <Link to="/#">view</Link>
+        <p className="paragraph spec-text">
+          specification, feature, discription and it's uniqueness, bla bla bla
+          bla
+        </p>
+        <Link to="/#" className="primary-button">
+          view
+        </Link>
       </div>
       <div className="card-border card-padding">
         <img
@@ -32,12 +37,60 @@ const FrontPage = () => (
         />
         <span className="name">Rado</span>
         <div className="price">Rs 200</div>
-        <div>specification, feature</div>
-        <Link to="/#">view</Link>
+        <div className="paragraph spec-text">
+          specification, feature, discription and it's uniqueness
+        </div>
+        <Link to="/#" className="primary-button">
+          view
+        </Link>
       </div>
-      <div>cards</div>
-      <div>cards</div>
-      <div>cards</div>
+      <div className="card-border card-padding">
+        <img
+          src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg"
+          alt="laptop"
+        />
+        <span className="name">Dell</span>
+        <div className="price">Rs 290</div>
+        <div className="paragraph spec-text">
+          Generate Lorem Ipsum placeholder text for use in your graphic, print
+          and web layouts, and discover plugins for your favorite writing
+        </div>
+        <Link to="/#" className="primary-button">
+          view
+        </Link>
+      </div>
+
+      <div className="card-border card-padding">
+        <img
+          src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665656613/electronics-shop/fd96kdzvrxi22eijhg0n.jpg"
+          alt="headphone"
+        />
+        <span className="name">Headphone</span>
+        <div className="price">Rs 140</div>
+        <div className="paragraph spec-text">
+          Generate Lorem Ipsum placeholder text for use in your graphic, print
+          and web layouts, and discover plugins for your favorite writing
+        </div>
+        <Link to="/#" className="primary-button">
+          view
+        </Link>
+      </div>
+
+      <div className="card-border card-padding">
+        <img
+          src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665660242/electronics-shop/ty6q0jycnhldozlagjfq.jpg"
+          alt="earbud"
+        />
+        <span className="name">Earbuds</span>
+        <div className="price">Rs 100</div>
+        <div className="paragraph spec-text">
+          Generate Lorem Ipsum placeholder text for use in your graphic, print
+          and web layouts, and discover plugins for your favorite writing
+        </div>
+        <Link to="/#" className="primary-button">
+          view
+        </Link>
+      </div>
     </div>
   </div>
 );
