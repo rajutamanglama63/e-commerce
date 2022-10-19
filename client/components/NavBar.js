@@ -20,6 +20,9 @@ const NavBar = () => (
           Home
         </Link>
         <Link to="/#" className="text-link">
+          user
+        </Link>
+        <Link to="/#" className="text-link">
           Login
         </Link>
       </div>
