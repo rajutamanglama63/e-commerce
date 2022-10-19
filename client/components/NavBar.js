@@ -17,10 +17,10 @@ const NavBar = () => (
           <span className="item-counter">12</span>
         </div>
         <Link to="/" className="text-link">
-          Home
+          Guest
         </Link>
         <Link to="/#" className="text-link">
-          user
+          Shop
         </Link>
         <Link to="/#" className="text-link">
           Login
