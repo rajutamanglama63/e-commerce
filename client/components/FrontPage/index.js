@@ -26,9 +26,7 @@ const FrontPage = () => (
           specification, feature, discription and it's uniqueness, bla bla bla
           bla
         </p>
-        <Link to="/#" className="primary-button">
-          view
-        </Link>
+        <button className="primary-button">view</button>
       </div>
       <div className="card-border card-padding">
         <img
@@ -40,9 +38,7 @@ const FrontPage = () => (
         <div className="paragraph spec-text">
           specification, feature, discription and it's uniqueness
         </div>
-        <Link to="/#" className="primary-button">
-          view
-        </Link>
+        <button className="primary-button">view</button>
       </div>
       <div className="card-border card-padding">
         <img
@@ -55,9 +51,7 @@ const FrontPage = () => (
           Generate Lorem Ipsum placeholder text for use in your graphic, print
           and web layouts, and discover plugins for your favorite writing
         </div>
-        <Link to="/#" className="primary-button">
-          view
-        </Link>
+        <button className="primary-button">view</button>
       </div>
 
       <div className="card-border card-padding">
@@ -71,9 +65,7 @@ const FrontPage = () => (
           Generate Lorem Ipsum placeholder text for use in your graphic, print
           and web layouts, and discover plugins for your favorite writing
         </div>
-        <Link to="/#" className="primary-button">
-          view
-        </Link>
+        <button className="primary-button">view</button>
       </div>
 
       <div className="card-border card-padding">
@@ -87,9 +79,7 @@ const FrontPage = () => (
           Generate Lorem Ipsum placeholder text for use in your graphic, print
           and web layouts, and discover plugins for your favorite writing
         </div>
-        <Link to="/#" className="primary-button">
-          view
-        </Link>
+        <button className="primary-button">view</button>
       </div>
     </div>
   </div>
