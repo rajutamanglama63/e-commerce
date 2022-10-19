@@ -1,0 +1,33 @@
+.container{
+    width: 60%;
+    margin: 0 auto;
+}
+
+.product-img{
+    width: 20rem;
+    height: 20rem;
+}
+
+.p-title{
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.price{
+    font-size: $one-font-size;
+    font-weight: 500;
+    color: $primary-color;
+}
+
+.spec{
+    font-size: $one-font-size;
+    font-weight: 100;
+}
+
+.avialiablity{
+    font-size: $one-font-size;
+}
+
+.stock{
+    font-weight: 700;
+}

@@ -18,3 +18,17 @@
   font-size: $h5;
   text-decoration: none;
 }
+
+.btn-counter{
+  background-color: $light-color;
+  border: 2px solid $primary-color;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+.btn{
+  border: none;
+    background-color: $primary-color;
+    color: $light-color;
+    padding: 0.5rem 1rem;
+}
