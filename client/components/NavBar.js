@@ -10,7 +10,7 @@ const NavBar = () => (
       <div className="logo">eGadgets</div>
       <div className="flex gap-2 align-center">
         <div className="cart-sec">
-          <Link to="/#" className="text-link align-center font-sm">
+          <Link to="/cart" className="text-link align-center font-sm">
             {/* <img src={cart} alt="cart" className="cart" /> */}
             {<GrCart className="cart" />}
           </Link>

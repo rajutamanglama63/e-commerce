@@ -20,6 +20,7 @@ $h4: 2rem; //32px
 $h5: 1.5rem; // 24px
 $paragraph: 1.125rem; //18px
 $one-font-size: 1rem;
+$font-size-lg: 6rem;
 
 // Breakpoint Mixins
 // 480px / 640px / 1024px / 1400px
@@ -36,6 +37,8 @@ $breakpoint-down: (
   "medium": "63.9375em",
   "large": "87.4375em",
 );
+
+
 
 @mixin breakpoint-up($size) {
   @media (min-width: map-get($breakpoint-up, $size )) {

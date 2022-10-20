@@ -18,13 +18,9 @@
   gap: 2rem;
 }
 
-// .flexible-flex{
-//   display: flex;
-//   @include breakpoint-down(medium) {
-//     display: block;
-//   }
-// }
-
+.gap-4 {
+  gap: 4rem
+}
 
 
 .portion-img{
@@ -35,11 +31,14 @@
   flex: 6
 }
 
+.block-view{
+  flex-direction: column;
+}
+
 .flow-direction{
   @include breakpoint-down(medium) {
         flex-direction: column;
       }
-  
 }
 
 .flow-direction-tn{
