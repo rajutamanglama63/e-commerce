@@ -33,3 +33,10 @@
     padding-right: 4rem;
   }
 }
+
+
+.mob-view{
+  @include breakpoint-down(medium) {
+    padding: 1rem 0;
+  }
+}

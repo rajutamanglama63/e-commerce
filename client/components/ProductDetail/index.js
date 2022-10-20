@@ -3,16 +3,16 @@ import React from "react";
 const ProductDetail = () => {
   return (
     <div className="wrapper region-md">
-      <div className="container flex split-pair">
-        <div className="img-side">
-          <div className="product-img">
-            <img
-              src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg"
-              alt="laptop"
-            />
-          </div>
+      <div className="container flex split-pair flow-direction">
+        {/* <div className="img-side"> */}
+        <div className="portion-img product-img">
+          <img
+            src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg"
+            alt="laptop"
+          />
         </div>
-        <div className="detailer-side region-side-left-md">
+        {/* </div> */}
+        <div className="portion-spec region-side-md mob-view">
           <p className="p-title">Dell inspiron</p>
           <p className="price">
             Price: <span>Rs 320</span>

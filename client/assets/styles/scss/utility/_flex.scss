@@ -18,4 +18,25 @@
   gap: 2rem;
 }
 
+// .flexible-flex{
+//   display: flex;
+//   @include breakpoint-down(medium) {
+//     display: block;
+//   }
+// }
+
+.flow-direction{
+  @include breakpoint-down(medium) {
+        flex-direction: column;
+      }
+  
+}
+
+.portion-img{
+  flex: 6
+}
+
+.portion-spec{
+  flex: 6
+}
 
