@@ -25,12 +25,7 @@
 //   }
 // }
 
-.flow-direction{
-  @include breakpoint-down(medium) {
-        flex-direction: column;
-      }
-  
-}
+
 
 .portion-img{
   flex: 6
@@ -38,5 +33,19 @@
 
 .portion-spec{
   flex: 6
+}
+
+.flow-direction{
+  @include breakpoint-down(medium) {
+        flex-direction: column;
+      }
+  
+}
+
+.flow-direction-tn{
+  @include breakpoint-down(small) {
+        flex-direction: column;
+      }
+  
 }
 

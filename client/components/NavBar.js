@@ -5,7 +5,7 @@ import { GrCart } from "react-icons/gr";
 
 const NavBar = () => (
   <div className="wrapper">
-    <div className="flex split-pair align-center region-tn">
+    <div className="flex split-pair align-center region-tn flow-direction-tn">
       {/* <img src={toskaLogo} alt="toska" className="logo" /> */}
       <div className="logo">eGadgets</div>
       <div className="flex gap-2 align-center">
