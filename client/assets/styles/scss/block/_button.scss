@@ -12,11 +12,17 @@
 }
 
 .secondary-button {
-  padding: 0rem 3rem;
-  border: 1px solid #000;
-  color: $text-color;
-  font-size: $h5;
+  padding: 0.5rem 3rem;
+  // border: 1px solid #000;
+  border: none;
+  background-color: $primary-color;
+  color: $light-color;
+  font-size: $paragraph;
   text-decoration: none;
+  cursor: pointer;
+  &:hover{
+      opacity: 0.5;
+  }
 }
 
 .btn-counter{
