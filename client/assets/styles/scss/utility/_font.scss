@@ -24,3 +24,10 @@
 .paragraph {
   font-size: $paragraph;
 }
+
+.font-sm{
+  @include breakpoint-down(small) {
+    font-size: $paragraph;
+  }
+  
+}

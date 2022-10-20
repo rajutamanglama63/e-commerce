@@ -10,19 +10,19 @@ const NavBar = () => (
       <div className="logo">eGadgets</div>
       <div className="flex gap-2 align-center">
         <div className="cart-sec">
-          <Link to="/#" className="text-link align-center">
+          <Link to="/#" className="text-link align-center font-sm">
             {/* <img src={cart} alt="cart" className="cart" /> */}
             {<GrCart className="cart" />}
           </Link>
-          <span className="item-counter">12</span>
+          <span className="item-counter font-sm">12</span>
         </div>
-        <Link to="/" className="text-link">
+        <Link to="/" className="text-link font-sm">
           Guest
         </Link>
-        <Link to="/#" className="text-link">
+        <Link to="/#" className="text-link font-sm">
           Shop
         </Link>
-        <Link to="/#" className="text-link">
+        <Link to="/#" className="text-link font-sm">
           Login
         </Link>
       </div>
