@@ -2,6 +2,11 @@
   display: grid;
 }
 
+.grid-common {
+  grid-template-columns: 5fr;
+  gap: 2rem;
+}
+
 .grid-2up {
   grid-template-columns: 1fr;
   gap: 2rem;
