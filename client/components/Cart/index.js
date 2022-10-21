@@ -1,8 +1,14 @@
 import React from "react";
 
 import { FiDelete } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const orderHandler = () => {
+    navigate("/shipping");
+  };
   return (
     <div className="wrapper flex block-view">
       <div className="container container-sm">
@@ -68,7 +74,12 @@ const Cart = () => {
             <span className="one-font-size">Rs.810</span>
           </div>
         </div>
-        <button className="secondary-button region-margin-sm">Order</button>
+        <button
+          onClick={orderHandler}
+          className="secondary-button region-margin-sm"
+        >
+          Order
+        </button>
       </div>
     </div>
   );
