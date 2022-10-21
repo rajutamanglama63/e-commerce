@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Signin = () => {
+const Signup = () => {
   return (
     <div className="wrapper flex block-view">
       <div className="container container-sm">
         <div className="flex block-view region-sm">
-          <h4 className="h6">Login</h4>
-          <p className="one-font-size">
-            Please fill the following form to login.
-          </p>
+          <h4 className="h6">Register</h4>
+          <p className="one-font-size">Please registered yourself.</p>
         </div>
         <form>
+          <input
+            className="input-field region-margin-tn border-line"
+            placeholder="First Name"
+          />
+          <input
+            className="input-field region-margin-tn border-line"
+            placeholder="Last Name"
+          />
           <input
             className="input-field region-margin-tn border-line"
             placeholder="Email"
@@ -20,9 +26,9 @@ const Signin = () => {
             className="input-field region-margin-tn border-line"
             placeholder="Password"
           />
-          <button className="secondary-button">Login</button>
+          <button className="secondary-button">Signup</button>
           <p className="region-margin-tn">
-            Not registered yet? <Link to="/signup">Register</Link>
+            Aready registered? <Link to="/signin">Login</Link>
           </p>
         </form>
       </div>
@@ -30,4 +36,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;

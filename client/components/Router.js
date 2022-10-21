@@ -8,6 +8,7 @@ import OrderView from "./OrderView";
 import ProductDetail from "./ProductDetail";
 import ShippingAddress from "./ShippingAddress.js";
 import Signin from "./Signin";
+import Signup from "./Signup";
 
 const Router = () => (
   <Routes>
@@ -18,6 +19,7 @@ const Router = () => (
     <Route path="/order-summary" element={<OrderSummery />} />
     <Route path="/order" element={<OrderView />} />
     <Route path="/signin" element={<Signin />} />
+    <Route path="/signup" element={<Signup />} />
     <Route path="/messages" element={<MessageView />} />
   </Routes>
 );
