@@ -35,6 +35,10 @@
   flex-direction: column;
 }
 
+.text-center{
+  text-align: center;
+}
+
 .flow-direction{
   @include breakpoint-down(medium) {
         flex-direction: column;
