@@ -21,49 +21,51 @@ const OrderView = () => {
         </div> */}
 
         <table className="table">
-          <tr>
-            <th>Image</th>
-            <th>Product name</th>
-            <th>Quantity</th>
-            <th>Remove</th>
+          <tr className="table-row">
+            <th className="paragraph paragraph-sm paragraph-md">Image</th>
+            <th className="paragraph paragraph-sm paragraph-md">
+              Product name
+            </th>
+            <th className="paragraph paragraph-sm paragraph-md">Quantity</th>
+            <th className="paragraph paragraph-sm paragraph-md">Remove</th>
           </tr>
-          <tr>
+          <tr className="table-row">
             <td className="cart-img">
               <img
                 src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665656613/electronics-shop/fd96kdzvrxi22eijhg0n.jpg"
                 alt="headphone"
               />
             </td>
-            <td>Headphone</td>
-            <td>1</td>
+            <td className="paragraph paragraph-sm paragraph-md">Headphone</td>
+            <td className="paragraph paragraph-sm paragraph-md">1</td>
             <td>
               <FiDelete className="paragraph btn-del" />
             </td>
           </tr>
 
-          <tr>
+          <tr className="table-row">
             <td className="cart-img">
               <img
                 src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg"
                 alt="dell"
               />
             </td>
-            <td>Laptop</td>
-            <td>1</td>
+            <td className="paragraph paragraph-sm paragraph-md">Laptop</td>
+            <td className="paragraph paragraph-sm paragraph-md">1</td>
             <td>
               <FiDelete className="paragraph btn-del" />
             </td>
           </tr>
 
-          <tr>
+          <tr className="table-row">
             <td className="cart-img">
               <img
                 src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655496/electronics-shop/vfhxxn3awxfynjku3aby.jpg"
                 alt="rado"
               />
             </td>
-            <td>Watch</td>
-            <td>2</td>
+            <td className="paragraph paragraph-sm paragraph-md">Watch</td>
+            <td className="paragraph paragraph-sm paragraph-md">2</td>
             <td>
               <FiDelete className="paragraph btn-del" />
             </td>
