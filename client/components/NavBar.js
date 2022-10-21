@@ -19,10 +19,10 @@ const NavBar = () => (
         <Link to="/" className="text-link font-sm">
           Guest
         </Link>
-        <Link to="/#" className="text-link font-sm">
+        <Link to="/" className="text-link font-sm">
           Shop
         </Link>
-        <Link to="/#" className="text-link font-sm">
+        <Link to="/signin" className="text-link font-sm">
           Login
         </Link>
       </div>
