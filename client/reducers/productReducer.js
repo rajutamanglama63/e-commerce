@@ -20,3 +20,5 @@ export const initializeProducts = () => {
     dispatch(setProducts(allProductItem.data));
   };
 };
+
+export default productSlice.reducer;
