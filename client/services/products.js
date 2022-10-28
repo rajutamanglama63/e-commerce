@@ -1,12 +1,11 @@
 import axios from "axios";
 
-const basePath =
-  process.env.NODE_ENV === "build"
-    ? "api/products"
-    : "http://localhost:3001/api/products";
+const basePath = "/api/products";
+// process.env.NODE_ENV === "build" ? "/api/products" : "/api/products";
 
 export const getProducts = async () => {
-  const allProducts = await axios.get(basePath);
+  const allProduct = await axios.get(`${basePath}/all`);
+  console.log(allProduct.data);
 
-  return allProducts.data;
+  return allProduct.data;
 };

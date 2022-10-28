@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Cart from "./Cart";
 
 import FrontPage from "./FrontPage";
-import MessageView from "./MessageView";
 import OrderSummery from "./OrderSummary";
 import OrderView from "./OrderView";
 import ProductDetail from "./ProductDetail";
@@ -20,7 +19,6 @@ const Router = () => (
     <Route path="/order" element={<OrderView />} />
     <Route path="/signin" element={<Signin />} />
     <Route path="/signup" element={<Signup />} />
-    <Route path="/messages" element={<MessageView />} />
   </Routes>
 );
 

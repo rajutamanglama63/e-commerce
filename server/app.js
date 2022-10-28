@@ -4,7 +4,6 @@ const fileUpload = require("express-fileupload");
 const cors = require("cors");
 const path = require("path");
 
-const messagesRouter = require("./controllers/messagesRouter");
 const productsRouter = require("./controllers/productsRouter");
 const catagoryRouter = require("./controllers/catagoryRouter");
 const cartRouter = require("./controllers/cartRouter");
@@ -18,21 +17,19 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
-app.use(express.static("dist"));
-
 app.use(
   fileUpload({
     useTempFiles: true,
   })
 );
+app.use(cors());
+app.use(express.json());
+app.use(express.static("dist"));
 
 app.use(middleware.userExtractor);
 
-app.use("/api/messages", messagesRouter);
-app.use("/api/users", userRouter);
 app.use("/api/products", productsRouter);
+app.use("/api/users", userRouter);
 app.use("/api/catagories", catagoryRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
