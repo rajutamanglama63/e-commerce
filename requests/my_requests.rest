@@ -7,6 +7,18 @@ content-type: application/json
     "password": "1234"
 }
 
+
+###
+POST http://localhost:3001/api/users/signup
+content-type: application/json
+
+{
+    "firstName": "Crow",
+    "lastName": "Xero",
+    "email": "crow123@gmail.com",
+    "password": "1"
+}
+
 ###
 GET http://localhost:3001/api/users/3
 

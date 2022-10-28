@@ -11,11 +11,11 @@ const registerSlice = createSlice({
     setUserRegistration(state, action) {
       const responsedData = action.payload;
 
-      return {
-        ...state,
-        msg: "",
-        user: responsedData.newUser,
-      };
+      // console.log(typeof responsedData === "string");
+
+      return typeof responsedData === "string"
+        ? { ...state, msg: responsedData, user: {} }
+        : { ...state, msg: "", user: responsedData.newUser };
     },
   },
 });
@@ -25,7 +25,7 @@ export const { setUserRegistration } = registerSlice.actions;
 export const userRegistration = (data) => {
   return async (dispatch) => {
     const user = await services.userSignup(data);
-    console.log(user);
+    // console.log(user);
     dispatch(setUserRegistration(user));
   };
 };

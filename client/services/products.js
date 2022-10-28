@@ -5,7 +5,7 @@ const baseUrl = "/api/products";
 
 const getProducts = async () => {
   let response = await axios.get(baseUrl);
-  console.log(response);
+  // console.log(response);
 
   // return response.then((result) => result.data);
   return response.data;

@@ -35,12 +35,12 @@ app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/shipping_address", shippingAddressRouter);
 
+app.use(middleware.errorHandler);
+app.use(middleware.unKnownEndPoint);
+
 // sends index.html
 app.use("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
-
-app.use(middleware.errorHandler);
-app.use(middleware.unKnownEndPoint);
 
 module.exports = app;
