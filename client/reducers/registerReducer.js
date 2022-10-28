@@ -3,10 +3,19 @@ import services from "../services/users";
 
 const registerSlice = createSlice({
   name: "register",
-  initialState: null,
+  initialState: {
+    msg: "",
+    user: {},
+  },
   reducers: {
     setUserRegistration(state, action) {
-      return action.payload;
+      const responsedData = action.payload;
+
+      return {
+        ...state,
+        msg: "",
+        user: responsedData.newUser,
+      };
     },
   },
 });
@@ -15,8 +24,9 @@ export const { setUserRegistration } = registerSlice.actions;
 
 export const userRegistration = (data) => {
   return async (dispatch) => {
-    const new_user = await services.userSignup(data);
-    dispatch(new_user);
+    const user = await services.userSignup(data);
+    console.log(user);
+    dispatch(setUserRegistration(user));
   };
 };
 
