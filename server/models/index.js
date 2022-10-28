@@ -11,8 +11,8 @@ Product.belongsTo(Catagory);
 User.hasOne(ShippingAddress);
 ShippingAddress.belongsTo(User);
 
-User.hasMany(Product);
-Product.belongsTo(User);
+// User.hasMany(Product);
+// Product.belongsTo(User);
 
 Cart.hasMany(Product);
 Product.belongsTo(Cart);
