@@ -1,11 +1,14 @@
 import axios from "axios";
 
-const basePath = "/api/products";
+const baseUrl = "/api/products";
 // process.env.NODE_ENV === "build" ? "/api/products" : "/api/products";
 
-export const getProducts = async () => {
-  const allProduct = await axios.get(`${basePath}/all`);
-  console.log(allProduct.data);
+const getProducts = async () => {
+  let response = await axios.get(baseUrl);
+  console.log(response);
 
-  return allProduct.data;
+  // return response.then((result) => result.data);
+  return response.data;
 };
+
+export default { getProducts };

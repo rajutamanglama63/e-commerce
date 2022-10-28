@@ -106,7 +106,8 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.get("/all", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
+  console.log("data");
   try {
     const allProducts = await Product.findAll({
       attributes: { exclude: ["catagoryId"] },
@@ -116,7 +117,7 @@ router.get("/all", async (req, res, next) => {
       },
     });
 
-    res.status(200).json({ allProducts });
+    res.status(200).json(allProducts);
   } catch (error) {
     next(error);
   }
