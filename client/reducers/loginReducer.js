@@ -3,10 +3,18 @@ import services from "../services/users";
 
 const loginSlice = createSlice({
   name: "login",
-  initialState: window.localStorage.getItem("loggedInUser"),
+  //   initialState: window.localStorage.getItem("loggedInUser"),
+  initialState: {
+    msg: "",
+    user: {},
+  },
   reducers: {
     setUserLogin(state, action) {
-      return action.payload;
+      const responsedData = action.payload;
+
+      return typeof responsedData === "string"
+        ? { ...state, msg: responsedData, user: {} }
+        : { ...state, msg: "", user: responsedData };
     },
     removeUser(state, action) {
       return action.payload;

@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 
 const Notification = () => {
   const registerData = useSelector((state) => state.register);
-  // console.log(registerData.msg);
+  const loginData = useSelector((state) => state.login);
 
   const [message, setMessage] = useState(null);
+  // console.log(message);
   let msgStyle = "";
 
   useEffect(() => {
@@ -15,9 +16,12 @@ const Notification = () => {
     }, 5000);
   }, [registerData]);
 
-  // if (message === null) {
-  //   return null;
-  // }
+  useEffect(() => {
+    setMessage(loginData.msg);
+    setTimeout(() => {
+      setMessage(null);
+    }, 5000);
+  }, [loginData]);
 
   if (
     message === "User logged in successfully." ||
