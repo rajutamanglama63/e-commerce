@@ -18,4 +18,14 @@ const userSignup = async (userData) => {
   //   .catch((err) => console.log(err.response.data.msg));
 };
 
-export default { userSignup };
+const userSignin = async (userCredentials) => {
+  try {
+    const response = await axios.post(`${baseUrl}/signin`, userCredentials);
+
+    return response.data;
+  } catch (error) {
+    return error.response.data.msg;
+  }
+};
+
+export default { userSignup, userSignin };
