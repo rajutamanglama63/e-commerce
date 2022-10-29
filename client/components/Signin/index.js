@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { userLogin } from "../../reducers/loginReducer";
 import Notification from "../Notification";
 
 const Signin = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loginData = useSelector((state) => state.login);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -15,6 +17,13 @@ const Signin = () => {
     setEmail("");
     setPassword("");
   };
+
+  useEffect(() => {
+    if (loginData.user.firstName) {
+      navigate("/");
+    }
+  }, [loginData]);
+
   return (
     <div className="wrapper flex block-view">
       <div className="container container-sm">

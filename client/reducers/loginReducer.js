@@ -17,7 +17,7 @@ const loginSlice = createSlice({
         : { ...state, msg: "", user: responsedData };
     },
     removeUser(state, action) {
-      return action.payload;
+      return { ...state, msg: "", user: {} };
     },
   },
 });
