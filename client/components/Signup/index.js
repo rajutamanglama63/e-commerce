@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { userRegistration } from "../../reducers/registerReducer";
+import Notification from "../Notification";
 
 const Signup = () => {
   const dispatch = useDispatch();
+
   const [newUserData, setNewUserData] = useState({
     firstName: "",
     lastName: "",
@@ -15,6 +17,7 @@ const Signup = () => {
   const registerHandler = (e) => {
     e.preventDefault();
     dispatch(userRegistration(newUserData));
+
     setNewUserData({
       firstName: "",
       lastName: "",
@@ -22,6 +25,7 @@ const Signup = () => {
       password: "",
     });
   };
+
   return (
     <div className="wrapper flex block-view">
       <div className="container container-sm">
@@ -29,6 +33,12 @@ const Signup = () => {
           <h4 className="h6">Register</h4>
           <p className="one-font-size">Please registered yourself.</p>
         </div>
+        {/* {registerData.msg ? (
+          <>
+            <p>{registerData.msg}</p>
+          </>
+        ) : null} */}
+        <Notification />
         <form onSubmit={registerHandler}>
           <input
             className="input-field region-margin-tn border-line"
