@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userRegistration } from "../../reducers/registerReducer";
 import Notification from "../Notification";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  // const registerData = useSelector((state) => state.register);
+  const navigate = useNavigate();
+  const registerData = useSelector((state) => state.register);
   // const [message, setMessage] = useState(null);
   const [newUserData, setNewUserData] = useState({
     firstName: "",
@@ -27,12 +28,11 @@ const Signup = () => {
     });
   };
 
-  // useEffect(() => {
-  //   setMessage(registerData.msg);
-  //   setTimeout(() => {
-  //     setMessage(null);
-  //   }, 5000);
-  // }, [registerData]);
+  useEffect(() => {
+    if (registerData.user.firstName) {
+      navigate("/signin");
+    }
+  }, [registerData]);
 
   return (
     <div className="wrapper flex block-view">
