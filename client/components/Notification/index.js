@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 const Notification = () => {
   const registerData = useSelector((state) => state.register);
+  // console.log(registerData.msg);
 
   const [message, setMessage] = useState(null);
-  console.log(message);
   let msgStyle = "";
 
-  if (message === null) {
-    return null;
-  }
-
-  if (registerData.msg) {
+  useEffect(() => {
     setMessage(registerData.msg);
     setTimeout(() => {
       setMessage(null);
     }, 5000);
-  }
+  }, [registerData]);
+
+  // if (message === null) {
+  //   return null;
+  // }
 
   if (
     message === "User logged in successfully." ||
@@ -38,7 +38,11 @@ const Notification = () => {
 
   return (
     <div>
-      <p className={msgStyle}>{message}</p>
+      {message ? (
+        <>
+          <p className={msgStyle}>{message}</p>
+        </>
+      ) : null}
     </div>
   );
 };

@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { userRegistration } from "../../reducers/registerReducer";
 import Notification from "../Notification";
 
 const Signup = () => {
   const dispatch = useDispatch();
-
+  // const registerData = useSelector((state) => state.register);
+  // const [message, setMessage] = useState(null);
   const [newUserData, setNewUserData] = useState({
     firstName: "",
     lastName: "",
@@ -26,6 +27,13 @@ const Signup = () => {
     });
   };
 
+  // useEffect(() => {
+  //   setMessage(registerData.msg);
+  //   setTimeout(() => {
+  //     setMessage(null);
+  //   }, 5000);
+  // }, [registerData]);
+
   return (
     <div className="wrapper flex block-view">
       <div className="container container-sm">
@@ -33,9 +41,9 @@ const Signup = () => {
           <h4 className="h6">Register</h4>
           <p className="one-font-size">Please registered yourself.</p>
         </div>
-        {/* {registerData.msg ? (
+        {/* {message ? (
           <>
-            <p>{registerData.msg}</p>
+            <p>{message}</p>
           </>
         ) : null} */}
         <Notification />
