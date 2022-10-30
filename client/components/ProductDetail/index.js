@@ -2,9 +2,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
-  const individualProduct = useSelector((state) => state.ProductDetail);
+  const individualProduct = useSelector((state) => state.productDetail);
   console.log(individualProduct);
-  return (
+  return !individualProduct ? (
+    <>Loading</>
+  ) : (
     <div className="wrapper region-md">
       <div className="container flex split-pair flow-direction">
         {/* <div className="img-side"> */}

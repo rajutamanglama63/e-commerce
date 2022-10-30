@@ -11,6 +11,7 @@ const Card = ({ item }) => {
     dispatch(initProductDetail(id));
     navigate(`/detail/${id}`);
   };
+
   return (
     <div className="card-border card-padding">
       <img src={item.imgUrl} alt="watch" />
