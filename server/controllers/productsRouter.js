@@ -107,7 +107,6 @@ router.post("/", async (req, res, next) => {
 });
 
 router.get("/", async (req, res, next) => {
-  console.log("data");
   try {
     const allProducts = await Product.findAll({
       attributes: { exclude: ["catagoryId"] },
@@ -118,6 +117,22 @@ router.get("/", async (req, res, next) => {
     });
 
     res.status(200).json(allProducts);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const product = await Product.findByPk(req.params.id, {
+      attributes: { exclude: ["catagoryId"] },
+      include: {
+        model: Catagory,
+        attributes: ["catagory_name"],
+      },
+    });
+
+    res.status(200).json(product);
   } catch (error) {
     next(error);
   }

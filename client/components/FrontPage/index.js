@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+
 import { initializeProducts } from "../../reducers/productReducer";
 import Card from "./Card";
 
 const FrontPage = () => {
   const productItems = useSelector((state) => state.product);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const detailHandler = () => {
-    navigate("/detail");
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(initializeProducts());
@@ -31,7 +27,7 @@ const FrontPage = () => {
     <div className="wrapper region-md">
       <div className="grid grid-4up">
         {productItems.map((item) => (
-          <Card key={item.id} detailHandler={detailHandler} item={item} />
+          <Card key={item.id} item={item} />
         ))}
       </div>
     </div>

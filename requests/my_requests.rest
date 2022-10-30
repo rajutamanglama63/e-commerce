@@ -48,6 +48,9 @@ content-type: application/json
 GET http://localhost:3001/api/products/all
 
 ###
+GET  http://localhost:3001/api/products/1
+
+###
 GET http://localhost:3001/api/catagories
 
 ###
