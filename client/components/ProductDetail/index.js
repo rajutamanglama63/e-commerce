@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
   const individualProduct = useSelector((state) => state.productDetail);
-  console.log(individualProduct);
+  // console.log(individualProduct);
   return !individualProduct ? (
     <>Loading</>
   ) : (
@@ -24,8 +24,19 @@ const ProductDetail = () => {
           </p>
           <p className="spec region-sm">{individualProduct.specification}</p>
           <p className="avialiablity">
-            Avialiable: <span className="stock">In stock</span>{" "}
+            Avialiable:{" "}
+            {individualProduct.quantity >= 1 ? (
+              <span className="stock">In stock</span>
+            ) : (
+              <span className="stock">Out of stock</span>
+            )}
           </p>
+          {/* <p className="avialiablity">
+            Catagory:{" "}
+            <span className="stock">
+              {individualProduct.catagory.catagory_name}
+            </span>
+          </p> */}
           <hr />
           <div className="region-tn">
             <button className="btn-counter">+</button>
