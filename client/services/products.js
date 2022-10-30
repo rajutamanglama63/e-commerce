@@ -11,4 +11,10 @@ const getProducts = async () => {
   return response.data;
 };
 
-export default { getProducts };
+const getProductDetail = async (id) => {
+  const response = await axios.get(`${baseUrl}/${id}`);
+
+  return response.data;
+};
+
+export default { getProducts, getProductDetail };
