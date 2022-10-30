@@ -1,10 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { initProductDetail } from "../../reducers/productDetailReducer";
 
 const Card = ({ item }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const detailHandler = (id) => {
+    dispatch(initProductDetail(id));
     navigate(`/detail/${id}`);
   };
   return (

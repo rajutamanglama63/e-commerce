@@ -1,28 +1,26 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
+  const individualProduct = useSelector((state) => state.ProductDetail);
+  console.log(individualProduct);
   return (
     <div className="wrapper region-md">
       <div className="container flex split-pair flow-direction">
         {/* <div className="img-side"> */}
         <div className="portion-img product-img">
           <img
-            src="https://res.cloudinary.com/dydwwtmnj/image/upload/v1665655994/electronics-shop/bdpjpywjvpjqdksjzjwj.jpg"
-            alt="laptop"
+            src={individualProduct.imgUrl}
+            alt={individualProduct.productName}
           />
         </div>
         {/* </div> */}
         <div className="portion-spec region-side-md mob-view">
-          <p className="p-title">Dell inspiron</p>
+          <p className="p-title">{individualProduct.productName}</p>
           <p className="price">
-            Price: <span>Rs 320</span>
+            Price: <span>Rs {individualProduct.price}</span>
           </p>
-          <p className="spec region-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
+          <p className="spec region-sm">{individualProduct.specification}</p>
           <p className="avialiablity">
             Avialiable: <span className="stock">In stock</span>{" "}
           </p>
