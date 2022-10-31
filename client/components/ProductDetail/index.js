@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 const ProductDetail = () => {
   const individualProduct = useSelector((state) => state.productDetail);
   // console.log(individualProduct);
+
+  const [qty, setQty] = useState(0);
+
+  const increase = () => {
+    setQty(qty + 1);
+  };
+
+  const decrease = () => {
+    setQty(qty - 1);
+  };
   return !individualProduct ? (
     <>Loading</>
   ) : (
@@ -39,9 +49,13 @@ const ProductDetail = () => {
           </p> */}
           <hr />
           <div className="region-tn">
-            <button className="btn-counter">+</button>
-            <span className="region-side-tn">1</span>
-            <button className="btn-counter">-</button>
+            <button className="btn-counter" onClick={increase}>
+              +
+            </button>
+            <span className="region-side-tn">{qty}</span>
+            <button className="btn-counter" onClick={decrease}>
+              -
+            </button>
           </div>
           <button className="btn">ADD TO CART</button>
         </div>
