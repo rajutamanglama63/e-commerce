@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { initializeCart } from "../../reducers/cartReducer";
 
 const ProductDetail = () => {
   const individualProduct = useSelector((state) => state.productDetail);
+  const dispatch = useDispatch();
   // console.log(individualProduct);
+
+  const productId = individualProduct.id;
 
   const [qty, setQty] = useState(0);
 
@@ -13,6 +17,14 @@ const ProductDetail = () => {
 
   const decrease = () => {
     setQty(qty - 1);
+  };
+
+  const cartHandler = (item) => {
+    try {
+      dispatch(initializeCart(item));
+    } catch (error) {
+      console.log(error.response.data.err);
+    }
   };
   return !individualProduct ? (
     <>Loading</>
@@ -57,7 +69,9 @@ const ProductDetail = () => {
               -
             </button>
           </div>
-          <button className="btn">ADD TO CART</button>
+          <button className="btn" onClick={cartHandler(productId, qty)}>
+            ADD TO CART
+          </button>
         </div>
       </div>
     </div>
