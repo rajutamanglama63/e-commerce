@@ -23,7 +23,7 @@ const ProductDetail = () => {
     try {
       dispatch(initializeCart(item));
     } catch (error) {
-      console.log(error.response.data.err);
+      console.log(error);
     }
   };
   return !individualProduct ? (
@@ -69,7 +69,10 @@ const ProductDetail = () => {
               -
             </button>
           </div>
-          <button className="btn" onClick={cartHandler(productId, qty)}>
+          <button
+            className="btn"
+            onClick={() => cartHandler({ productId, quantity: qty })}
+          >
             ADD TO CART
           </button>
         </div>
