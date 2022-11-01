@@ -8,16 +8,27 @@ const cartSlice = createSlice({
     setCart(state, action) {
       return action.payload;
     },
+    getCartItems(state, action) {
+      return action.payload;
+    },
   },
 });
 
-export const { setCart } = cartSlice.actions;
+export const { setCart, getCartItems } = cartSlice.actions;
 
 export const initializeCart = (item) => {
   return async (dispatch) => {
     const cartItem = await services.addToCart(item);
 
     dispatch(setCart(cartItem));
+  };
+};
+
+export const cartItems = () => {
+  return async (dispatch) => {
+    const cartItemData = await services.allCartItems();
+
+    dispatch(getCartItems(cartItemData));
   };
 };
 

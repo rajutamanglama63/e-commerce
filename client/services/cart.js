@@ -14,4 +14,10 @@ const addToCart = async (item) => {
   return response.data;
 };
 
-export default { addToCart };
+const allCartItems = async () => {
+  const response = await axios.get(baseUrl);
+
+  return response.data;
+};
+
+export default { addToCart, allCartItems };

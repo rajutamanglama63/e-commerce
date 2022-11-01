@@ -12,7 +12,7 @@ const ProductDetail = () => {
 
   const productId = individualProduct.id;
 
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
 
   const increase = () => {
     setQty(qty + 1);
