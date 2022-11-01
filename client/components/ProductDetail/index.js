@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { initializeCart } from "../../reducers/cartReducer";
 
 const ProductDetail = () => {
   const individualProduct = useSelector((state) => state.productDetail);
+  const loggedUser = useSelector((state) => state.login);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // console.log(individualProduct);
 
   const productId = individualProduct.id;
@@ -21,7 +24,12 @@ const ProductDetail = () => {
 
   const cartHandler = (item) => {
     try {
-      dispatch(initializeCart(item));
+      if (loggedUser.user.firstName) {
+        dispatch(initializeCart(item));
+        navigate("/cart");
+      } else {
+        alert("Please login to proceed further.");
+      }
     } catch (error) {
       console.log(error);
     }
