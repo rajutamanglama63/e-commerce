@@ -1,13 +1,20 @@
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const config = require("../utils/config");
-const { OrderHistory, User, Product } = require("../models");
+// const Cart = require("../models/cart");
+// const Product = require("../models/product");
+// const User = require("../models/user");
+
+const { User, Orders } = require("../models");
 
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
   try {
-    const { orderStatus, orderedProductId } = req.body;
+    const { quantity, status, address } = req.body;
+    // console.log(quantity, productId);
+
+    // const product_item = await Product.findByPk(productId);
 
     const decodedUser = jwt.verify(req.user, config.SECRET);
 
@@ -21,54 +28,56 @@ router.post("/", async (req, res, next) => {
       return res.status(401).json({ err: "token missing or invalid." });
     }
 
-    const newOrder = await OrderHistory.create({
-      orderStatus,
-      orderedProductId,
+    const newOrderData = await Orders.create({
+      quantity,
+      status,
+      address,
       userId: user.id,
     });
 
-    res.status(200).json({ newOrder });
+    res.status(200).json({ newOrderData });
   } catch (error) {
     next(error);
+    // console.log(error);
   }
 });
 
-router.get("/", async (req, res, next) => {
-  try {
-    const allOrders = await OrderHistory.findAll({
-      include: {
-        model: User,
-        attributes: ["firstName"],
-      },
-    });
+// router.get("/", async (req, res, next) => {
+//   try {
+//     const allCartItems = await Cart.findAll({
+//       include: {
+//         model: User,
+//         attributes: ["firstName"],
+//       },
+//     });
 
-    res.status(200).json({ allOrders });
-  } catch (error) {
-    next(error);
-  }
-});
+//     res.status(200).json({ allCartItems });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
-router.get("/:id", async (req, res, next) => {
-  try {
-    const allOrders = await OrderHistory.findAll({
-      include: {
-        model: User,
-        attributes: ["firstName"],
-      },
-    });
+// router.get("/:id", async (req, res, next) => {
+//   try {
+//     const allCartItems = await Cart.findAll({
+//       include: {
+//         model: User,
+//         attributes: ["firstName"],
+//       },
+//     });
 
-    allOrders.forEach((order) => {
-      // console.log(typeof order.userId);
-      // console.log(typeof req.params.id);
-      if (order.userId.toString() !== req.params.id) {
-        return res.status(500).json({ msg: "You have no orders yet" });
-      } else {
-        return res.status(200).json({ order });
-      }
-    });
-  } catch (error) {
-    next(error);
-  }
-});
+//     allCartItems.forEach((item) => {
+//       if (item.userId.toString() !== req.params.id) {
+//         return res
+//           .status(500)
+//           .json({ msg: "You've no item listed in your cart yet." });
+//       } else if (item.userId.toString() === req.params.id) {
+//         return res.status(200).json({ item });
+//       }
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 module.exports = router;
