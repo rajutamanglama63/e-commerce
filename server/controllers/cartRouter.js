@@ -66,13 +66,11 @@ router.get("/:id", async (req, res, next) => {
     });
 
     allCartItems.forEach((item) => {
-      // if (item.userId.toString() !== req.params.id) {
-      //   return res
-      //     .status(500)
-      //     .json({ msg: "You've no item listed in your cart yet." });
-      // }
-
-      if (item.userId.toString() === req.params.id) {
+      if (item.userId.toString() !== req.params.id) {
+        return res
+          .status(500)
+          .json({ msg: "You've no item listed in your cart yet." });
+      } else if (item.userId.toString() === req.params.id) {
         return res.status(200).json({ item });
       }
     });

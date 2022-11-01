@@ -1,34 +1,33 @@
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../utils/db");
 
-class OrderHistory extends Model {}
+class OrderDetails extends Model {}
 
-OrderHistory.init(
+OrderDetails.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    orderStatus: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
-    orderedProductId: {
+    orderId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      references: { model: "orders", key: "id" },
     },
-    userId: {
+    productId: {
       type: DataTypes.INTEGER,
-      references: { model: "users", key: "id" },
+      references: { model: "products", key: "id" },
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
     },
   },
   {
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "orderHistory",
+    modelName: "orderDetails",
   }
 );
 
-module.exports = OrderHistory;
+module.exports = OrderDetails;
