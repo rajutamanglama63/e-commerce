@@ -17,6 +17,9 @@ Orders.init(
     status: {
       type: DataTypes.TEXT,
     },
+    address: {
+      type: DataTypes.TEXT,
+    },
     userId: {
       type: DataTypes.INTEGER,
       references: { model: "users", key: "id" },
