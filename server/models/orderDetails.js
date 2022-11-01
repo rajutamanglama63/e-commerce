@@ -26,7 +26,7 @@ OrderDetails.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "orderDetails",
+    modelName: "orderDetail",
   }
 );
 
