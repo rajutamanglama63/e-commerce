@@ -42,6 +42,33 @@ router.post("/", async (req, res, next) => {
   }
 });
 
+router.get("/", async (req, res, next) => {
+  try {
+    const decodedUser = jwt.verify(req.user, config.SECRET);
+
+    if (!decodedUser.id) {
+      return res.status(401).json({ err: "token missing or invalid." });
+    }
+
+    const user = await User.findByPk(decodedUser.id);
+
+    if (!user) {
+      return res.status(401).json({ err: "token missing or invalid." });
+    }
+
+    const orderedProduct = await Orders.findOne({
+      where: {
+        status: "pending",
+        user: user.id,
+      },
+    });
+
+    res.status(200).json({ orderedProduct });
+  } catch (error) {
+    next(error);
+  }
+});
+
 // router.get("/", async (req, res, next) => {
 //   try {
 //     const allCartItems = await Cart.findAll({
