@@ -3,7 +3,7 @@ content-type: application/json
 
 {
     
-    "email": "rabbit123@gmail.com",
+    "email": "jane123@gmail.com",
     "password": "1234"
 }
 
@@ -69,6 +69,16 @@ GET http://localhost:3001/api/cart
 ###
 GET http://localhost:3001/api/cart/10
 
+###
+POST http://localhost:3001/api/orders
+content-type: application/json,
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJKYW5lIiwibGFzdE5hbWUiOiJEb2UiLCJpZCI6OCwiaWF0IjoxNjY3NTQ2ODE2LCJleHAiOjE2Njc1NTA0MTZ9.6Iho1ZOdWDd7GlV4iMDAaYBlzkWXg8sdKXMGjGwxAwk
+
+{
+    "quantity": 1,
+    "status": "pending",
+    "address": "Ktm, Nepal"
+}
 
 ###
 GET http://localhost:3001/api/order

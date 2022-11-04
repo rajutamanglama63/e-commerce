@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/", async (req, res, next) => {
   try {
     const { quantity, status, address } = req.body;
-    // console.log(quantity, productId);
+    console.log(quantity, status, address);
 
     // const product_item = await Product.findByPk(productId);
 
