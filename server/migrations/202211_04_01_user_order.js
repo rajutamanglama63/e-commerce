@@ -46,7 +46,7 @@ module.exports = {
         defaultValue: false,
       },
     });
-    await queryInterface.addColumn("my_orders", "user_id", {
+    await queryInterface.addColumn("my_orders", "id_user", {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "users", key: "id" },
