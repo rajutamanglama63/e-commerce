@@ -52,11 +52,11 @@ module.exports = {
         type: DataTypes.INTEGER,
       },
     });
-    await queryInterface.addColumn("orders", "product_Id", {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: { model: "products", key: "id" },
-    });
+    // await queryInterface.addColumn("orders", "product_Id", {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: { model: "products", key: "id" },
+    // });
   },
   down: async ({ context: queryInterface }) => {
     await queryInterface.dropTable("orders");
