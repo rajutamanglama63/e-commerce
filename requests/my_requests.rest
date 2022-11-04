@@ -13,10 +13,10 @@ POST http://localhost:3001/api/users/signup
 content-type: application/json
 
 {
-    "firstName": "Crow",
-    "lastName": "Xero",
-    "email": "crow123@gmail.com",
-    "password": "1"
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "jane123@gmail.com",
+    "password": "1234"
 }
 
 ###
@@ -27,7 +27,7 @@ POST http://localhost:3001/api/catagories/
 content-type: application/json
 
 {
-    "catagory_name": "watches"
+    "catagory_name": "laptops"
 }
 
 ###
@@ -35,13 +35,13 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 160,
-    "productName": "siko 5",
-    "specification": "water and dust resistance, affordable, silver in color, classic design, show time perfectly",
-    "quantity": 3,
-    "imgPublicId": "electronics-shop/qvoe9dsze7wuggmggy9c",
-    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665654877/electronics-shop/qvoe9dsze7wuggmggy9c.jpg",
-    "catagoryId": 4
+    "price": 105,
+    "productName": "earphone",
+    "specification": "Generate Lorem Ipsum placeholder text for use in your graphic, print and web layouts, and discover plugins for your favorite writing, design and blogging tools. Explore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous",
+    "quantity": 7,
+    "imgPublicId": "electronics-shop/ty6q0jycnhldozlagjfq",
+    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665660242/electronics-shop/ty6q0jycnhldozlagjfq.jpg",
+    "catagoryId": 3
 }
 
 ###

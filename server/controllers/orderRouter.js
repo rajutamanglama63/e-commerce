@@ -11,8 +11,7 @@ const router = express.Router();
 
 router.post("/", async (req, res, next) => {
   try {
-    const { quantity, status, address } = req.body;
-    console.log(quantity, status, address);
+    const { quantity, address } = req.body;
 
     // const product_item = await Product.findByPk(productId);
 
@@ -30,7 +29,6 @@ router.post("/", async (req, res, next) => {
 
     const newOrderData = await Orders.create({
       quantity,
-      status,
       address,
       userId: user.id,
     });
@@ -58,7 +56,6 @@ router.get("/", async (req, res, next) => {
 
     const orderedProduct = await Orders.findOne({
       where: {
-        status: "pending",
         user: user.id,
       },
     });

@@ -16,6 +16,7 @@ Orders.init(
     },
     status: {
       type: DataTypes.TEXT,
+      defaultValue: "pending",
     },
     address: {
       type: DataTypes.TEXT,
