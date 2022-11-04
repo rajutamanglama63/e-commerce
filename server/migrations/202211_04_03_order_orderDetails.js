@@ -31,7 +31,7 @@ module.exports = {
       },
       order_Id: {
         type: DataTypes.INTEGER,
-        references: { model: "orders", key: "id" },
+        references: { model: "my_orders", key: "id" },
       },
       product_Id: {
         type: DataTypes.INTEGER,
@@ -48,7 +48,7 @@ module.exports = {
     // });
   },
   down: async ({ context: queryInterface }) => {
-    await queryInterface.dropTable("orders");
+    await queryInterface.dropTable("my_orders");
     await queryInterface.dropTable("my_order_details");
   },
 };
