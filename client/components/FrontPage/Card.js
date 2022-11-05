@@ -13,7 +13,7 @@ const Card = ({ item }) => {
   };
 
   return (
-    <div className="card card-border card-padding">
+    <div className="card-border card-padding">
       <img src={item.imgUrl} alt={item.productName} className="card-pic" />
       <span className="name">{item.productName}</span>
       <div className="price">Rs {item.price}</div>
