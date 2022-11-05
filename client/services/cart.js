@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/api/cart";
+const baseUrl = "/api/order-detail";
 
 const addToCart = async (item) => {
   const token = JSON.parse(window.localStorage.getItem("loggedInUser")).token;

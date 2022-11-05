@@ -12,7 +12,7 @@ OrderDetails.init(
     },
     orderId: {
       type: DataTypes.INTEGER,
-      references: { model: "orders", key: "id" },
+      references: { model: "my_orders", key: "id" },
     },
     productId: {
       type: DataTypes.INTEGER,
@@ -26,7 +26,7 @@ OrderDetails.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "orderDetail",
+    modelName: "my_order_detail",
   }
 );
 

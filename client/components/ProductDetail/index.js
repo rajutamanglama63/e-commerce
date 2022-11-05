@@ -26,7 +26,7 @@ const ProductDetail = () => {
     try {
       if (loggedUser.user.firstName) {
         dispatch(initializeCart(item));
-        navigate("/cart");
+        // navigate("/cart");
       } else {
         alert("Please login to proceed further.");
       }

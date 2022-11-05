@@ -21,7 +21,7 @@ Orders.init(
     address: {
       type: DataTypes.TEXT,
     },
-    userId: {
+    idUser: {
       type: DataTypes.INTEGER,
       references: { model: "users", key: "id" },
     },
@@ -30,7 +30,7 @@ Orders.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "order",
+    modelName: "my_order",
   }
 );
 

@@ -1,11 +1,13 @@
 const express = require("express");
-const { Orders, Product, OrderDetails } = require("../models");
+const jwt = require("jsonwebtoken");
+const config = require("../utils/config");
+const { Orders, Product, OrderDetails, User } = require("../models");
 
 const router = express.Router();
 
 router.post("/", async (req, res, next) => {
   try {
-    const { productId, quantity, address } = req.body;
+    const { productId, quantity } = req.body;
 
     const decodedUser = jwt.verify(req.user, config.SECRET);
 
@@ -22,7 +24,7 @@ router.post("/", async (req, res, next) => {
     const order = await Orders.findOne({
       where: {
         status: "pending",
-        user: user.id,
+        idUser: user.id,
       },
     });
 
@@ -36,8 +38,7 @@ router.post("/", async (req, res, next) => {
     } else {
       const newOrder = await Orders.create({
         quantity,
-        userId: user.id,
-        address,
+        idUser: user.id,
       });
       const orderedItemInCart = await OrderDetails.create({
         productId,
@@ -68,9 +69,9 @@ router.get("/", async (req, res, next) => {
     const items = await Orders.findOne({
       where: {
         status: "pending",
-        user: user.id,
+        idUser: user.id,
       },
-      attributes: { exclude: ["userId"] },
+      attributes: { exclude: ["idUser"] },
       include: [
         {
           model: Product,
