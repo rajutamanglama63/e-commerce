@@ -7,6 +7,7 @@ const path = require("path");
 const productsRouter = require("./controllers/productsRouter");
 const catagoryRouter = require("./controllers/catagoryRouter");
 const orderRouter = require("./controllers/orderRouter");
+const orderDetailRouter = require("./controllers/orderDetailRouter");
 const userRouter = require("./controllers/user");
 
 const middleware = require("./utils/middleware");
@@ -30,6 +31,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/users", userRouter);
 app.use("/api/catagories", catagoryRouter);
 app.use("/api/orders", orderRouter);
+app.use("/api/order-detail", orderDetailRouter);
 
 app.use(middleware.errorHandler);
 app.use(middleware.unKnownEndPoint);
