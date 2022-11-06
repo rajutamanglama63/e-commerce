@@ -10,7 +10,7 @@ OrderDetails.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    orderId: {
+    myOrderId: {
       type: DataTypes.INTEGER,
       references: { model: "my_orders", key: "id" },
     },
@@ -26,7 +26,7 @@ OrderDetails.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "my_order_detail",
+    modelName: "myOrderDetail",
   }
 );
 

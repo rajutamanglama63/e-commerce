@@ -31,7 +31,7 @@ router.post("/", async (req, res, next) => {
     if (order) {
       const orderedItemInCart = await OrderDetails.create({
         productId: productId,
-        orderId: order.id,
+        myOrderId: order.id,
         quantity: order.quantity,
       });
       res.status(201).json({ orderedItemInCart });
@@ -42,7 +42,7 @@ router.post("/", async (req, res, next) => {
       });
       const orderedItemInCart = await OrderDetails.create({
         productId,
-        orderId: newOrder.id,
+        myOrderId: newOrder.id,
         quantity: newOrder.quantity,
       });
       res.status(201).json({ orderedItemInCart });

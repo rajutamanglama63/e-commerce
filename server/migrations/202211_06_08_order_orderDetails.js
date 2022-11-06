@@ -8,11 +8,11 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      order_Id: {
+      my_order_id: {
         type: DataTypes.INTEGER,
         references: { model: "my_orders", key: "id" },
       },
-      product_Id: {
+      product_id: {
         type: DataTypes.INTEGER,
         references: { model: "products", key: "id" },
       },
