@@ -24,7 +24,7 @@ const NavBar = () => {
               {/* <img src={cart} alt="cart" className="cart" /> */}
               {<GrCart className="cart" />}
             </Link>
-            <span className="item-counter font-sm">12</span>
+            <span className="item-counter font-sm">0</span>
           </div>
           {loginData.user.firstName ? (
             <Link to="/" className="text-link font-sm">

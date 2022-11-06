@@ -71,7 +71,7 @@ router.get("/", async (req, res, next) => {
         status: "pending",
         idUser: user.id,
       },
-      attributes: { exclude: ["idUser"] },
+      // attributes: { exclude: ["idUser"] },
       include: [
         {
           model: Product,

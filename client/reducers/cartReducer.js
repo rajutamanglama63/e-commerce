@@ -6,7 +6,7 @@ const cartSlice = createSlice({
   initialState: [],
   reducers: {
     setCart(state, action) {
-      return action.payload;
+      return [...state, action.payload];
     },
     getCartItems(state, action) {
       return action.payload;
