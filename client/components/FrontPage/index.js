@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { initOrders } from "../../reducers/orderReducer";
 
 import { initializeProducts } from "../../reducers/productReducer";
 import Card from "./Card";
@@ -11,6 +12,7 @@ const FrontPage = () => {
 
   useEffect(() => {
     dispatch(initializeProducts());
+    dispatch(initOrders());
   }, [dispatch]);
   return (
     // <div className="wrapper region-md flow-md">

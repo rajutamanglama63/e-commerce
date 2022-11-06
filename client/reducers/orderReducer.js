@@ -15,7 +15,7 @@ export const { setOrders } = ordersSlice.actions;
 
 export const initOrders = () => {
   return async (dispatch) => {
-    const orderedItems = await services.allOrders;
+    const orderedItems = await services.allOrders();
 
     dispatch(setOrders(orderedItems));
   };

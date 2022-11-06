@@ -5,7 +5,7 @@ const config = require("../utils/config");
 // const Product = require("../models/product");
 // const User = require("../models/user");
 
-const { User, Orders } = require("../models");
+const { User, Orders, Product } = require("../models");
 
 const router = express.Router();
 
@@ -58,6 +58,13 @@ router.get("/", async (req, res, next) => {
       where: {
         idUser: user.id,
       },
+      include: [
+        {
+          model: Product,
+          attributes: ["productName", "price", "imgUrl"],
+          through: ["productId", "quantity"],
+        },
+      ],
     });
 
     res.status(200).json({ orderedProduct });

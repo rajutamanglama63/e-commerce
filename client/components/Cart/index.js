@@ -3,17 +3,23 @@ import React, { useEffect } from "react";
 import { FiDelete } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { initOrders } from "../../reducers/orderReducer";
+// import { initOrders } from "../../reducers/orderReducer";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+
   const orderedItems = useSelector((state) => state.orders);
+
+  // useEffect(async () => {
+  //   await dispatch(initOrders());
+  // }, [dispatch]);
+
   const loggedUser = useSelector((state) => state.login);
 
-  useEffect(() => {
-    dispatch(initOrders());
-  }, [dispatch]);
+  if (!loggedUser.user.id) {
+    navigate("/");
+  }
 
   const orderHandler = () => {
     navigate("/shipping");
@@ -23,11 +29,39 @@ const Cart = () => {
       <div className="container container-sm">
         <div className="flex block-view region-sm">
           <h4 className="h6">Shopping cart</h4>
-          <p className="one-font-size">You have 12 item in your cart.</p>
+          <p className="one-font-size">
+            You have {orderedItems.orderedProduct.products.length} item in your
+            cart.
+          </p>
         </div>
 
-        {loggedUser.user.id === orderedItems.orderedProduct.idUser
-          ? orderedItems.orderedProduct.map((item) => (
+        <table className="table region-margin-sm">
+          <tr>
+            <th className="thead">Image</th>
+            <th className="thead">Product name</th>
+            <th className="thead">Quantity</th>
+            <th className="thead">Remove</th>
+          </tr>
+          <tr>
+            {orderedItems.orderedProduct.products.length !== 0
+              ? orderedItems.orderedProduct.products.map((item) => (
+                  <>
+                    <td className="cart-img tdata">
+                      <img src={item.imgUrl} alt="headphone" />
+                    </td>
+                    <td className="tdata">{item.productName}</td>
+                    <td className="tdata">{item.quantity}</td>
+                    <td className="tdata">
+                      <FiDelete className="paragraph btn-del" />
+                    </td>
+                  </>
+                ))
+              : null}
+          </tr>
+        </table>
+
+        {/* {orderedItems.orderedProduct.products.length !== 0
+          ? orderedItems.orderedProduct.products.map((item) => (
               <>
                 <table className="table region-margin-sm">
                   <tr>
@@ -49,7 +83,7 @@ const Cart = () => {
                 </table>
               </>
             ))
-          : null}
+          : null} */}
 
         <div className="border-line sub-total">
           <div className="flex split-pair">
