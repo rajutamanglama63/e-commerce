@@ -17,7 +17,7 @@ const Cart = () => {
 
   const loggedUser = useSelector((state) => state.login);
 
-  if (!loggedUser.user.id) {
+  if (!loggedUser.user.firstName) {
     navigate("/");
   }
 
@@ -42,22 +42,23 @@ const Cart = () => {
             <th className="thead">Quantity</th>
             <th className="thead">Remove</th>
           </tr>
-          <tr>
-            {orderedItems.orderedProduct.products.length !== 0
-              ? orderedItems.orderedProduct.products.map((item) => (
-                  <>
+
+          {orderedItems.orderedProduct.products.length !== 0
+            ? orderedItems.orderedProduct.products.map((item) => (
+                <>
+                  <tr key={item.price}>
                     <td className="cart-img tdata">
-                      <img src={item.imgUrl} alt="headphone" />
+                      <img src={item.imgUrl} alt={item.productName} />
                     </td>
                     <td className="tdata">{item.productName}</td>
                     <td className="tdata">{item.quantity}</td>
                     <td className="tdata">
                       <FiDelete className="paragraph btn-del" />
                     </td>
-                  </>
-                ))
-              : null}
-          </tr>
+                  </tr>
+                </>
+              ))
+            : null}
         </table>
 
         {/* {orderedItems.orderedProduct.products.length !== 0
