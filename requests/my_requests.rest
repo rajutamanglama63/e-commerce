@@ -72,7 +72,7 @@ GET http://localhost:3001/api/cart/10
 ###
 POST http://localhost:3001/api/orders
 content-type: application/json,
-authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJKYW5lIiwibGFzdE5hbWUiOiJEb2UiLCJpZCI6OCwiaWF0IjoxNjY3NTQ2ODE2LCJleHAiOjE2Njc1NTA0MTZ9.6Iho1ZOdWDd7GlV4iMDAaYBlzkWXg8sdKXMGjGwxAwk
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJKYW5lIiwibGFzdE5hbWUiOiJEb2UiLCJpZCI6NSwiaWF0IjoxNjY3NzUwNzczLCJleHAiOjE2Njc3NTQzNzN9.8dQ1eCztVH_Hq18Eg-H0cInHn8sRl6xP1k8U0gJEAlY
 
 {
     "quantity": 1,
@@ -81,7 +81,9 @@ authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJKY
 }
 
 ###
-GET http://localhost:3001/api/order
+GET http://localhost:3001/api/orders
+content-type: application/json,
+authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdE5hbWUiOiJKYW5lIiwibGFzdE5hbWUiOiJEb2UiLCJpZCI6NSwiaWF0IjoxNjY3NzUwNzczLCJleHAiOjE2Njc3NTQzNzN9.8dQ1eCztVH_Hq18Eg-H0cInHn8sRl6xP1k8U0gJEAlY
 
 ###
 GET http://localhost:3001/api/order/2

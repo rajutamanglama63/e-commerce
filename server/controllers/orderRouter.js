@@ -56,7 +56,7 @@ router.get("/", async (req, res, next) => {
 
     const orderedProduct = await Orders.findOne({
       where: {
-        user: user.id,
+        idUser: user.id,
       },
     });
 

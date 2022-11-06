@@ -16,7 +16,7 @@ export const { setProductDetail } = productDetailSlice.actions;
 export const initProductDetail = (id) => {
   return async (dispatch) => {
     const productInfo = await services.getProductDetail(id);
-    console.log(productInfo);
+    // console.log(productInfo);
 
     dispatch(setProductDetail(productInfo));
   };

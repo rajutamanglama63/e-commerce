@@ -3,16 +3,16 @@ import React, { useEffect } from "react";
 import { FiDelete } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { cartItems } from "../../reducers/cartReducer";
+import { initOrders } from "../../reducers/orderReducer";
 
 const Cart = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const itemsInCart = useSelector((state) => state.cart);
+  const orderedItems = useSelector((state) => state.orders);
   const loggedUser = useSelector((state) => state.login);
 
   useEffect(() => {
-    dispatch(cartItems());
+    dispatch(initOrders());
   }, [dispatch]);
 
   const orderHandler = () => {
@@ -26,8 +26,8 @@ const Cart = () => {
           <p className="one-font-size">You have 12 item in your cart.</p>
         </div>
 
-        {loggedUser.user.id === itemsInCart.items.idUser
-          ? itemsInCart.items.map((item) => (
+        {loggedUser.user.id === orderedItems.orderedProduct.idUser
+          ? orderedItems.orderedProduct.map((item) => (
               <>
                 <table className="table region-margin-sm">
                   <tr>
