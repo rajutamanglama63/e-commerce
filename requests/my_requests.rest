@@ -35,13 +35,13 @@ POST http://localhost:3001/api/products
 content-type: application/json
 
 {
-    "price": 105,
-    "productName": "earphone",
+    "price": 238,
+    "productName": "one plus",
     "specification": "Generate Lorem Ipsum placeholder text for use in your graphic, print and web layouts, and discover plugins for your favorite writing, design and blogging tools. Explore the origins, history and meaning of the famous passage, and learn how Lorem Ipsum went from scrambled Latin passage to ubiqitous",
-    "quantity": 7,
-    "imgPublicId": "electronics-shop/ty6q0jycnhldozlagjfq",
-    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1665660242/electronics-shop/ty6q0jycnhldozlagjfq.jpg",
-    "catagoryId": 3
+    "quantity": 4,
+    "imgPublicId": "electronics-shop/znkhhzho2qqlnvkesvrz",
+    "imgUrl": "https://res.cloudinary.com/dydwwtmnj/image/upload/v1667800040/electronics-shop/znkhhzho2qqlnvkesvrz.jpg",
+    "catagoryId": 2
 }
 
 ###
