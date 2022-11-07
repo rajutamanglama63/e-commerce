@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/api/orders";
+const baseUrl = "http://localhost:3001/api/orders";
 
 const allOrders = async () => {
   const token = JSON.parse(window.localStorage.getItem("loggedInUser")).token;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/api/order-detail";
+const baseUrl = "http://localhost:3001/api/order-detail";
 
 const addToCart = async (item) => {
   const token = JSON.parse(window.localStorage.getItem("loggedInUser")).token;
@@ -15,7 +15,10 @@ const addToCart = async (item) => {
 };
 
 const allCartItems = async () => {
-  const token = JSON.parse(window.localStorage.getItem("loggedInUser")).token;
+  const token =
+    window.localStorage.getItem("loggedInUser") !== null
+      ? JSON.parse(window.localStorage.getItem("loggedInUser")).token
+      : null;
   const config = {
     headers: {
       authorization: `bearer ${token}`,

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "/api/products";
+const baseUrl = "http://localhost:3001/api/products";
 // process.env.NODE_ENV === "build" ? "/api/products" : "/api/products";
 
 const getProducts = async () => {
