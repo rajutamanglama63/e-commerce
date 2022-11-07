@@ -15,7 +15,13 @@ const addToCart = async (item) => {
 };
 
 const allCartItems = async () => {
-  const response = await axios.get(baseUrl);
+  const token = JSON.parse(window.localStorage.getItem("loggedInUser")).token;
+  const config = {
+    headers: {
+      authorization: `bearer ${token}`,
+    },
+  };
+  const response = await axios.get(baseUrl, config);
 
   return response.data;
 };

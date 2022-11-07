@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { cartItems } from "../../reducers/cartReducer";
 import { initOrders } from "../../reducers/orderReducer";
 
 import { initializeProducts } from "../../reducers/productReducer";
@@ -12,7 +13,7 @@ const FrontPage = () => {
 
   useEffect(() => {
     dispatch(initializeProducts());
-    dispatch(initOrders());
+    dispatch(cartItems());
   }, [dispatch]);
   return (
     // <div className="wrapper region-md flow-md">

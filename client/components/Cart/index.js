@@ -9,7 +9,8 @@ const Cart = () => {
   const navigate = useNavigate();
   // const dispatch = useDispatch();
 
-  const orderedItems = useSelector((state) => state.orders);
+  // const orderedItems = useSelector((state) => state.orders);
+  const orderedItems = useSelector((state) => state.cart);
 
   // useEffect(async () => {
   //   await dispatch(initOrders());
@@ -30,8 +31,7 @@ const Cart = () => {
         <div className="flex block-view region-sm">
           <h4 className="h6">Shopping cart</h4>
           <p className="one-font-size">
-            You have {orderedItems.orderedProduct.products.length} item in your
-            cart.
+            You have {orderedItems.items.products.length} item in your cart.
           </p>
         </div>
 
@@ -43,8 +43,8 @@ const Cart = () => {
             <th className="thead">Remove</th>
           </tr>
 
-          {orderedItems.orderedProduct.products.length !== 0
-            ? orderedItems.orderedProduct.products.map((item) => (
+          {orderedItems.items.products.length !== 0
+            ? orderedItems.items.products.map((item) => (
                 <>
                   <tr key={item.price}>
                     <td className="cart-img tdata">

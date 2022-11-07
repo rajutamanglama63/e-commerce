@@ -8,7 +8,7 @@ import { removeUser } from "../reducers/loginReducer";
 const NavBar = () => {
   const dispatch = useDispatch();
   const loginData = useSelector((state) => state.login);
-  const orderedItems = useSelector((state) => state.orders);
+  const orderedItems = useSelector((state) => state.cart);
 
   const logoutHandler = () => {
     window.localStorage.removeItem("loggedInUser");
@@ -26,8 +26,8 @@ const NavBar = () => {
               {<GrCart className="cart" />}
             </Link>
             <span className="item-counter font-sm">
-              {orderedItems.orderedProduct
-                ? orderedItems.orderedProduct.products.length
+              {loginData.user.firstName && orderedItems.items
+                ? orderedItems.items.products.length
                 : 0}
             </span>
           </div>
