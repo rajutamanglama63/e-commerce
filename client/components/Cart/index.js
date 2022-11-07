@@ -12,21 +12,19 @@ const Cart = () => {
 
   // const orderedItems = useSelector((state) => state.orders);
   const orderedItems = useSelector((state) => state.cart);
-
-  // useEffect(async () => {
-  //   await dispatch(initOrders());
-  // }, [dispatch]);
-
   const loggedUser = useSelector((state) => state.login);
 
-  if (!loggedUser.user.firstName) {
-    navigate("/");
-  }
+  // useEffect(() => {
+  //   // await dispatch(initOrders());
+  //   if (!loggedUser.user.firstName) {
+  //     navigate("/");
+  //   }
+  // }, [loggedUser.user]);
 
   const orderHandler = () => {
     navigate("/shipping");
   };
-  return orderedItems.items ? (
+  return orderedItems.items && loggedUser.user.firstName ? (
     <div className="wrapper flex block-view">
       <div className="container container-sm">
         <div className="flex block-view region-sm">
@@ -52,7 +50,7 @@ const Cart = () => {
                       <img src={item.imgUrl} alt={item.productName} />
                     </td>
                     <td className="tdata">{item.productName}</td>
-                    <td className="tdata">{item.quantity}</td>
+                    <td className="tdata">{item.myOrderDetail.quantity}</td>
                     <td className="tdata">
                       <FiDelete className="paragraph btn-del" />
                     </td>

@@ -34,7 +34,7 @@ app.use("/api/orders", orderRouter);
 app.use("/api/order-detail", orderDetailRouter);
 
 app.use(middleware.errorHandler);
-app.use(middleware.unKnownEndPoint);
+app.use("/api/*", middleware.unKnownEndPoint);
 
 // sends index.html
 app.use("*", (req, res) => {
