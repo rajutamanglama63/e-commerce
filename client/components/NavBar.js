@@ -26,7 +26,9 @@ const NavBar = () => {
               {<GrCart className="cart" />}
             </Link>
             <span className="item-counter font-sm">
-              {orderedItems ? orderedItems.orderedProduct.products.length : 0}
+              {orderedItems.orderedProduct
+                ? orderedItems.orderedProduct.products.length
+                : 0}
             </span>
           </div>
           {loginData.user.firstName ? (

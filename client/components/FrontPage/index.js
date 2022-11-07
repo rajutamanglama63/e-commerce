@@ -12,7 +12,7 @@ const FrontPage = () => {
 
   useEffect(() => {
     dispatch(initializeProducts());
-    // dispatch(initOrders());
+    dispatch(initOrders());
   }, [dispatch]);
   return (
     // <div className="wrapper region-md flow-md">
