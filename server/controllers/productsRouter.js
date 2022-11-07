@@ -42,7 +42,7 @@ router.post("/upload", async (req, res, next) => {
       {
         folder: "electronics-shop",
       },
-      async (err, result) => {
+      (err, result) => {
         if (err) throw err;
 
         removeTem(file.tempFilePath);
