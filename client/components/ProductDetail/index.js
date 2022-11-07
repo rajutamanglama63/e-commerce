@@ -69,13 +69,23 @@ const ProductDetail = () => {
           </p> */}
           <hr />
           <div className="region-tn">
-            <button className="btn-counter" onClick={increase}>
+            {/* <button className="btn-counter" onClick={increase}>
               +
             </button>
             <span className="region-side-tn">{qty}</span>
             <button className="btn-counter" onClick={decrease}>
               -
-            </button>
+            </button> */}
+            <p>
+              Qty
+              <select value={qty} onChange={(e) => setQty(e.target.value)}>
+                {[...Array(individualProduct.quantity).keys()].map((x) => (
+                  <option key={x + 1} value={x + 1}>
+                    {x + 1}
+                  </option>
+                ))}
+              </select>
+            </p>
           </div>
           <button
             className="btn"
